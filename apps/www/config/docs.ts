@@ -8,6 +8,14 @@ interface DocsConfig {
 export const docsConfig: DocsConfig = {
   mainNav: [
     {
+      title: "Blog",
+      href: "/blog",
+    },
+    {
+      title: "Resume",
+      href: "/resume",
+    },
+    {
       title: "Components",
       href: "/docs/components/dynamic-island",
     },
