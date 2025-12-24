@@ -23,7 +23,7 @@ export default function HomePage() {
               I'm not a software engineer, but I play one on the internet. Here, I showcase my 'barely working' projects—a chaotic mix of ambition, caffeine, and code that somehow runs. Welcome to my digital playground!
             </p>
           </div>
-          <div className="flex w-full items-center justify-center space-x-4 py-4 md:pb-2">
+          <div className="flex w-full flex-wrap items-center justify-center gap-4 py-4 md:pb-2">
             <Link
               className={cn(
                 buttonVariants({ size: "lg" }),
@@ -40,33 +40,35 @@ export default function HomePage() {
                 buttonVariants({ variant: "outline", size: "lg" }),
                 "rounded-xl transition-all hover:bg-muted/50"
               )}
-              href="https://github.com/spacechild-dev"
+              href={siteConfig.links.github}
             >
               <Icons.gitHub className="mr-2 size-5" /> GitHub
             </Link>
-          </div>
-          <div className="flex items-center justify-center gap-4 py-4 md:pb-2">
-            <Link href="https://www.linkedin.com/in/dagkanbayramoglu/" target="_blank" rel="noreferrer">
-              <Icons.linkedin className="size-5" />
-            </Link>
-            <Link href="https://open.spotify.com/user/az7ds62ok9xtg09ua7cs7ym9i" target="_blank" rel="noreferrer">
-              <Icons.spotify className="size-5" />
-            </Link>
-            <Link href="https://www.last.fm/user/dagkan/listening-report/year" target="_blank" rel="noreferrer">
-              <Icons.lastfm className="size-5" />
-            </Link>
-            <Link href="https://www.discogs.com/user/dagkanbayramoglu/collection" target="_blank" rel="noreferrer">
-              <Icons.discogs className="size-5" />
-            </Link>
-            <Link href="mailto:hello@dagkanbayramoglu.com">
-              <Icons.mail className="size-5" />
-            </Link>
+            
+            {/* Social Icons integrated into the same row */}
+            <div className="flex items-center gap-3 px-2">
+              <Link href="https://www.linkedin.com/in/dagkanbayramoglu/" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Icons.linkedin className="size-5" />
+              </Link>
+              <Link href="https://open.spotify.com/user/az7ds62ok9xtg09ua7cs7ym9i" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Icons.spotify className="size-5" />
+              </Link>
+              <Link href="https://www.last.fm/user/dagkan/listening-report/year" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Icons.lastfm className="size-5" />
+              </Link>
+              <Link href="https://www.discogs.com/user/dagkanbayramoglu/collection" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Icons.discogs className="size-5" />
+              </Link>
+              <Link href="mailto:hello@dagkanbayramoglu.com" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Icons.mail className="size-5" />
+              </Link>
+            </div>
           </div>
         </section>
 
         {/* Blog Section */}
         <section className="mt-24 space-y-8 max-w-3xl mx-auto">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-2">
             <h2 className="text-3xl font-bold">Recent Posts</h2>
             <Link
               href="/blog"
@@ -76,7 +78,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-1">
+          <div className="grid gap-6 sm:grid-cols-1 px-2">
             {recentPosts.length === 0 ? (
               <p className="col-span-full text-center text-muted-foreground">
                 No blog posts yet.
@@ -112,7 +114,7 @@ export default function HomePage() {
         </section>
 
         {/* Skills/Tech Stack */}
-        <section className="mt-24 space-y-6 max-w-3xl mx-auto text-center">
+        <section className="mt-24 space-y-6 max-w-3xl mx-auto text-center px-2">
           <h2 className="text-3xl font-bold">Skills / Tech Stack</h2>
           <div className="flex flex-wrap justify-center gap-3">
             {[
