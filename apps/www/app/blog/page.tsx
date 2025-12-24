@@ -3,7 +3,7 @@ import { getAllBlogPosts } from "@/lib/blog"
 
 export const metadata = {
   title: "Blog",
-  description: "Düşünceler, projeler ve öğrendiklerim",
+  description: "Thoughts, projects, and learnings",
 }
 
 export default function BlogPage() {
@@ -15,18 +15,18 @@ export default function BlogPage() {
         <div>
           <h1 className="text-4xl font-bold tracking-tight">Blog</h1>
           <p className="text-muted-foreground mt-2">
-            Düşüncelerim, projelerim ve öğrendiklerimi paylaşıyorum
+            Sharing my thoughts, projects, and what I've learned
           </p>
         </div>
 
         <div className="flex flex-col gap-6">
           {posts.length === 0 ? (
-            <p className="text-muted-foreground">Henüz blog yazısı yok.</p>
+            <p className="text-muted-foreground">No blog posts yet.</p>
           ) : (
             posts.map((post) => (
               <article
                 key={post.slug}
-                className="group flex flex-col gap-2 border-b pb-6"
+                className="group flex flex-col gap-3 rounded-xl border bg-card p-6 transition-all hover:shadow-md"
               >
                 <Link href={`/blog/${post.slug}`}>
                   <h2 className="text-2xl font-bold group-hover:text-primary transition-colors">
@@ -36,7 +36,7 @@ export default function BlogPage() {
                 <p className="text-muted-foreground">{post.description}</p>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString("tr-TR", {
+                    {new Date(post.date).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
