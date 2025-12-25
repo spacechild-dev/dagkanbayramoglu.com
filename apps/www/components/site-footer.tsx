@@ -29,19 +29,19 @@ export function SiteFooter() {
         </p>
         <div className="flex items-center gap-4">
           <Link href="https://www.linkedin.com/in/dagkanbayramoglu/" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <i className="fa fa-linkedin text-lg" aria-hidden="true"></i>
+            <Icons.linkedin className="size-5" />
           </Link>
           <Link href="https://open.spotify.com/user/az7ds62ok9xtg09ua7cs7ym9i" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <i className="fa fa-spotify text-lg" aria-hidden="true"></i>
+            <Icons.spotify className="size-5" />
           </Link>
           <Link href="https://www.last.fm/user/dagkan/listening-report/year" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <i className="fa fa-lastfm text-lg" aria-hidden="true"></i>
+            <Icons.lastfm className="size-5" />
           </Link>
           <Link href={siteConfig.links.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <i className="fa fa-github text-lg" aria-hidden="true"></i>
+            <Icons.gitHub className="size-5" />
           </Link>
           <Link href="mailto:hello@dagkanbayramoglu.com" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <i className="fa fa-envelope text-base" aria-hidden="true"></i>
+            <Icons.mail className="size-5" />
           </Link>
         </div>
       </div>
