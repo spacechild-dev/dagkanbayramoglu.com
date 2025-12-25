@@ -27,13 +27,13 @@ export default function HomePage() {
     <div className="isolate min-h-screen overflow-hidden pb-8 sm:pb-12">
       <div className="container relative py-12 md:pt-24 max-w-3xl">
         {/* Hero Section */}
-        <section className="flex flex-col items-center gap-8 text-center">
-          <div className="mx-auto max-w-4xl space-y-6 md:space-y-8">
-            <p className="text-center text-sm leading-relaxed text-foreground md:text-base font-medium">
+        <section className="flex flex-col items-start gap-8 text-left">
+          <div className="mr-auto max-w-4xl space-y-6 md:space-y-8">
+            <p className="text-left text-sm leading-relaxed text-foreground md:text-base font-medium">
               I’m Dağkan (sounds like “DAH-kahn”). I don’t really consider myself a developer, but I love exploring and experimenting with different topics—especially anything related to <span className="text-accent-teal font-bold">data-driven performance marketing</span>, <span className="text-accent-teal font-bold">analytics</span>, and <span className="text-accent-teal font-bold">martech</span>.
             </p>
           </div>
-          <div className="flex w-full flex-wrap items-center justify-center gap-4 py-4 md:pb-2">
+          <div className="flex w-full flex-wrap items-center justify-start gap-4 py-4 md:pb-2">
             <Link className={primaryBtnClass} href="/blog">Blog Posts</Link>
             <Link target="_blank" rel="noreferrer" className={btnClass} href={siteConfig.links.github}>
               <Icons.gitHub className="size-4" /> GitHub
