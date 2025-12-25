@@ -33,29 +33,23 @@ export default function HomePage() {
               I’m Dağkan (sounds like “DAH-kahn”). I don’t really consider myself a developer, but I love exploring and experimenting with different topics—especially anything related to <span className="text-accent-teal font-bold">data-driven performance marketing</span>, <span className="text-accent-teal font-bold">analytics</span>, and <span className="text-accent-teal font-bold">martech</span>.
             </p>
           </div>
-          <div className="flex w-full flex-wrap items-center justify-start gap-4 py-4 md:pb-2">
+          <div className="flex w-full flex-wrap items-center justify-start gap-3 py-4 md:pb-2">
             <Link className={primaryBtnClass} href="/blog">Blog Posts</Link>
-            <Link target="_blank" rel="noreferrer" className={btnClass} href={siteConfig.links.github}>
+            <Link target="_blank" rel="noreferrer" className={cn(btnClass, "hover:text-accent-teal hover:border-accent-teal/30 hover:bg-accent-teal/5")} href={siteConfig.links.github}>
               <Icons.gitHub className="size-4" /> GitHub
             </Link>
-            
-            <div className="flex items-center gap-4 px-2">
-              <Link href="https://www.linkedin.com/in/dagkanbayramoglu/" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-                <Icons.linkedin className="size-5" />
-              </Link>
-              <Link href="https://open.spotify.com/user/az7ds62ok9xtg09ua7cs7ym9i" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-                <Icons.spotify className="size-5" />
-              </Link>
-              <Link href="https://www.last.fm/user/dagkan/listening-report/year" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-                <Icons.lastfm className="size-5" />
-              </Link>
-              <Link href={siteConfig.links.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-                <Icons.gitHub className="size-5" />
-              </Link>
-              <Link href="mailto:hello@dagkanbayramoglu.com" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-                <Icons.mail className="size-5" />
-              </Link>
-            </div>
+            <Link target="_blank" rel="noreferrer" className={cn(btnClass, "hover:text-accent-teal hover:border-accent-teal/30 hover:bg-accent-teal/5")} href="https://www.linkedin.com/in/dagkanbayramoglu/">
+              <Icons.linkedin className="size-4" /> LinkedIn
+            </Link>
+            <Link target="_blank" rel="noreferrer" className={cn(btnClass, "hover:text-accent-teal hover:border-accent-teal/30 hover:bg-accent-teal/5")} href="https://open.spotify.com/user/az7ds62ok9xtg09ua7cs7ym9i">
+              <Icons.spotify className="size-4" /> Spotify
+            </Link>
+            <Link target="_blank" rel="noreferrer" className={cn(btnClass, "hover:text-accent-teal hover:border-accent-teal/30 hover:bg-accent-teal/5")} href="https://www.last.fm/user/dagkan/listening-report/year">
+              <Icons.lastfm className="size-4" /> Last.fm
+            </Link>
+            <Link href="mailto:hello@dagkanbayramoglu.com" className={cn(btnClass, "hover:text-accent-teal hover:border-accent-teal/30 hover:bg-accent-teal/5")}>
+              <Icons.mail className="size-4" /> Mail
+            </Link>
           </div>
         </section>
 

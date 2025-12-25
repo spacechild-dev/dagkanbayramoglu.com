@@ -27,21 +27,36 @@ export function SiteFooter() {
           </a>
           .
         </p>
-        <div className="flex items-center gap-4">
-          <Link href="https://www.linkedin.com/in/dagkanbayramoglu/" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <Icons.linkedin className="size-5" />
+        <div className="flex items-center gap-0.5">
+          <Link href="https://www.linkedin.com/in/dagkanbayramoglu/" target="_blank" rel="noreferrer">
+            <div className={cn(buttonVariants({ variant: "ghost" }), "w-9 px-0 hover:text-accent-teal hover:bg-accent-teal/5")}>
+              <Icons.linkedin className="size-4" />
+              <span className="sr-only">LinkedIn</span>
+            </div>
           </Link>
-          <Link href="https://open.spotify.com/user/az7ds62ok9xtg09ua7cs7ym9i" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <Icons.spotify className="size-5" />
+          <Link href="https://open.spotify.com/user/az7ds62ok9xtg09ua7cs7ym9i" target="_blank" rel="noreferrer">
+            <div className={cn(buttonVariants({ variant: "ghost" }), "w-9 px-0 hover:text-accent-teal hover:bg-accent-teal/5")}>
+              <Icons.spotify className="size-4" />
+              <span className="sr-only">Spotify</span>
+            </div>
           </Link>
-          <Link href="https://www.last.fm/user/dagkan/listening-report/year" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <Icons.lastfm className="size-5" />
+          <Link href="https://www.last.fm/user/dagkan/listening-report/year" target="_blank" rel="noreferrer">
+            <div className={cn(buttonVariants({ variant: "ghost" }), "w-9 px-0 hover:text-accent-teal hover:bg-accent-teal/5")}>
+              <Icons.lastfm className="size-4" />
+              <span className="sr-only">Last.fm</span>
+            </div>
           </Link>
-          <Link href={siteConfig.links.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <Icons.gitHub className="size-5" />
+          <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
+            <div className={cn(buttonVariants({ variant: "ghost" }), "w-9 px-0 hover:text-accent-teal hover:bg-accent-teal/5")}>
+              <Icons.gitHub className="size-4" />
+              <span className="sr-only">GitHub</span>
+            </div>
           </Link>
-          <Link href="mailto:hello@dagkanbayramoglu.com" className="text-muted-foreground hover:text-accent-teal transition-all hover:scale-110">
-            <Icons.mail className="size-5" />
+          <Link href="mailto:hello@dagkanbayramoglu.com">
+            <div className={cn(buttonVariants({ variant: "ghost" }), "w-9 px-0 hover:text-accent-teal hover:bg-accent-teal/5")}>
+              <Icons.mail className="size-4" />
+              <span className="sr-only">Mail</span>
+            </div>
           </Link>
         </div>
       </div>
