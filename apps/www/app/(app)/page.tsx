@@ -155,6 +155,15 @@ export default function HomePage() {
                       <Icons.gitHub className="h-4 w-4" />
                       <span>GitHub</span>
                     </Link>
+                    <Link
+                      href="https://mixtapekit.spacechild.dev/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className={btnClass}
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      <span>Visit</span>
+                    </Link>
                   </div>
                 </div>
                 <p className="text-muted-foreground">

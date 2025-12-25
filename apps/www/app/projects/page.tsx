@@ -56,7 +56,7 @@ export default function ProjectsPage() {
                     <span>GitHub</span>
                   </Link>
                   <Link
-                    href="https://github.com/spacechild-dev/spotify-mixtapekit"
+                    href="https://mixtapekit.spacechild.dev/"
                     target="_blank"
                     rel="noreferrer"
                     className={btnClass}
