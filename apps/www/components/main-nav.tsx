@@ -3,6 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Code } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 import { docsConfig } from "@/config/docs"
@@ -17,9 +18,8 @@ export function MainNav() {
     <div className="flex items-center gap-6">
       <Link href="/" className="flex items-center gap-2 group">
         <div className="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
-          <Icons.disc className="size-5 text-emerald-500" />
+          <Code className="size-5 text-emerald-500" />
         </div>
-        <span className="font-bold text-foreground tracking-tight">MixtapeKit</span>
       </Link>
       
       <div className="hidden md:flex items-center gap-1 ml-4 border-l border-border pl-4">
