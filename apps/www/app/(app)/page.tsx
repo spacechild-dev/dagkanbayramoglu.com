@@ -28,7 +28,7 @@ export default function HomePage() {
       <div className="container relative py-12 md:pt-24 max-w-3xl">
         {/* Hero Section */}
         <section className="flex flex-col items-center gap-8 text-center">
-          <div className="mx-auto space-y-6 md:space-y-8">
+          <div className="mx-auto max-w-4xl space-y-6 md:space-y-8">
             <p className="text-center text-sm leading-relaxed text-foreground md:text-base font-medium">
               I’m Dağkan (sounds like “DAH-kahn”). I don’t really consider myself a developer, but I love exploring and experimenting with different topics—especially anything related to data-driven performance marketing, analytics, and martech.
             </p>
@@ -59,16 +59,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Blog Section - Replicating 'New Blocks' Design */}
+        {/* Blog Section */}
         <section className="mt-32 space-y-8">
           <div className="flex items-center justify-between px-2">
             <div className="flex items-center gap-3">
-              <Badge variant="outline" className="rounded-full px-3 py-1 border-black/10 text-xs bg-white dark:bg-zinc-900 shadow-sm h-8">
-                <Newspaper className="mr-2 size-3.5 fill-[#D2F583] stroke-1 text-neutral-800" />
-                <span className="font-bold tracking-tight text-neutral-800 dark:text-neutral-200 text-sm">Recent Posts</span>
+              <h2 className="text-3xl font-bold tracking-tight">Recent Posts</h2>
+              <Badge variant="outline" className="rounded-full px-2 py-0 h-6 border-black/10 text-[10px] bg-white dark:bg-zinc-900 shadow-sm">
+                <Newspaper className="mr-1 size-3 fill-[#D2F583] stroke-1 text-neutral-800" /> New
               </Badge>
             </div>
-            <Link href="/blog" className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors">View All →</Link>
+            <Link href="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">View All →</Link>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-1 px-2">
@@ -80,11 +80,9 @@ export default function HomePage() {
                   <Card className="group h-full overflow-hidden rounded-2xl border-none p-0 shadow-[0px_1px_1px_0px_rgba(0,_0,_0,_0.05),_0px_1px_1px_0px_rgba(255,_252,_240,_0.5)_inset,_0px_0px_0px_1px_hsla(0,_0%,_100%,_0.1)_inset,_0px_0px_1px_0px_rgba(28,_27,_26,_0.5)] transition-all brightness-100 hover:brightness-105 bg-white dark:bg-zinc-900/50">
                     <div className="flex h-full flex-col pt-5 pb-4">
                       <div className="flex-1 px-5">
-                        <div className="flex items-start justify-between">
-                          <h3 className="text-lg font-bold tracking-tight group-hover:text-primary transition-colors">
-                            {post.title}
-                          </h3>
-                        </div>
+                        <h3 className="text-lg font-bold tracking-tight group-hover:text-primary transition-colors">
+                          {post.title}
+                        </h3>
                         <div className="mt-2 text-sm leading-relaxed tracking-tight text-muted-foreground line-clamp-2">
                           {post.description}
                         </div>
@@ -116,9 +114,9 @@ export default function HomePage() {
         <section className="mt-32 space-y-8">
           <div className="flex items-center justify-between px-2">
             <div className="flex items-center gap-3">
-              <Badge variant="outline" className="rounded-full px-3 py-1 border-black/10 text-xs bg-white dark:bg-zinc-900 shadow-sm h-8">
-                <StickerIcon className="mr-2 size-3.5 fill-[#A3C0E0] stroke-1 text-neutral-800" />
-                <span className="font-bold tracking-tight text-neutral-800 dark:text-neutral-200 text-sm">Project Manifest</span>
+              <h2 className="text-3xl font-bold tracking-tight">Projects</h2>
+              <Badge variant="outline" className="rounded-full px-2 py-0 h-6 border-black/10 text-[10px] bg-white dark:bg-zinc-900 shadow-sm">
+                <StickerIcon className="mr-1 size-3 fill-[#A3C0E0] stroke-1 text-neutral-800" /> Manifest
               </Badge>
             </div>
             <Link href="/projects" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">View All →</Link>
@@ -127,7 +125,7 @@ export default function HomePage() {
           <div className="grid gap-8 sm:grid-cols-2 px-2">
             {projects.map((project) => (
               <Link key={project.slug} href={`/projects/${project.slug}`} className="block no-underline group h-full">
-                <MinimalCard className="relative p-2 no-underline shadow-sm transition-colors bg-card hover:bg-muted/50 text-left h-full flex flex-col">
+                <MinimalCard className="relative p-2 no-underline shadow-sm transition-colors bg-card hover:bg-muted/50 text-left h-full flex flex-col min-h-[320px]">
                   <div className={cn(
                     "relative aspect-[16/10] w-full overflow-hidden rounded-[18px] shrink-0",
                     "shadow-[0px_1px_1px_0px_rgba(0,0,0,0.05),0px_1px_1px_0px_rgba(255,252,240,0.5)_inset,0px_0px_0px_1px_hsla(0,0%,100%,0.1)_inset,0px_0px_1px_0px_rgba(28,27,26,0.5)]"
@@ -180,7 +178,7 @@ export default function HomePage() {
                         {project.title}
                       </MinimalCardTitle>
                     </div>
-                    <MinimalCardDescription className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-normal line-clamp-3">
+                    <MinimalCardDescription className="text-xs sm:text-sm text-muted-foreground leading-relaxed font-normal line-clamp-4">
                       {project.description}
                     </MinimalCardDescription>
                   </div>
