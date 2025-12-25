@@ -100,12 +100,13 @@ export default async function ProjectPage({
           {project.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
-                <span
+                <Link
                   key={tag}
-                  className="inline-flex items-center rounded-md bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground border border-border"
+                  href={`/projects/tags/${encodeURIComponent(tag)}`}
+                  className="inline-flex items-center rounded-md bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground border border-border hover:bg-accent transition-colors"
                 >
-                  {tag}
-                </span>
+                  #{tag}
+                </Link>
               ))}
             </div>
           )}

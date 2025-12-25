@@ -52,6 +52,21 @@ export function getAllProjects(): Project[] {
   return allProjects
 }
 
+export function getAllProjectTags(): string[] {
+  const projects = getAllProjects()
+  const tags = new Set<string>()
+  projects.forEach((project) => {
+    project.tags.forEach((tag) => tags.add(tag))
+  })
+  return Array.from(tags).sort()
+}
+
+export function getProjectsByTag(tag: string): Project[] {
+  return getAllProjects().filter((project) =>
+    project.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+  )
+}
+
 export function getProject(slug: string): Project | null {
   try {
     const fullPath = path.join(projectsDirectory, `${slug}.mdx`)

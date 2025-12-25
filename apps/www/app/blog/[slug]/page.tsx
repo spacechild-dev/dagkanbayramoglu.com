@@ -68,14 +68,15 @@ export default async function BlogPostPage({
             {post.author && <span>· {post.author}</span>}
           </div>
           {post.tags.length > 0 && (
-            <div className="flex gap-2 mt-4">
+            <div className="flex flex-wrap gap-2 mt-4">
               {post.tags.map((tag) => (
-                <span
+                <Link
                   key={tag}
-                  className="inline-block bg-muted px-2 py-1 text-xs rounded"
+                  href={`/blog/tags/${encodeURIComponent(tag)}`}
+                  className="inline-block bg-muted px-2 py-1 text-xs rounded hover:bg-primary hover:text-primary-foreground transition-colors"
                 >
-                  {tag}
-                </span>
+                  #{tag}
+                </Link>
               ))}
             </div>
           )}

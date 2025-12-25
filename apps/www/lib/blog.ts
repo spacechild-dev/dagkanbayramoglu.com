@@ -47,6 +47,21 @@ export function getAllBlogPosts(): BlogPost[] {
   return allPosts
 }
 
+export function getAllBlogTags(): string[] {
+  const posts = getAllBlogPosts()
+  const tags = new Set<string>()
+  posts.forEach((post) => {
+    post.tags.forEach((tag) => tags.add(tag))
+  })
+  return Array.from(tags).sort()
+}
+
+export function getBlogPostsByTag(tag: string): BlogPost[] {
+  return getAllBlogPosts().filter((post) =>
+    post.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+  )
+}
+
 export function getBlogPost(slug: string): BlogPost | null {
   try {
     const fullPath = path.join(blogDirectory, `${slug}.mdx`)
