@@ -6,7 +6,7 @@ import Image from "next/image"
 import { components } from "@/components/blog-mdx-components"
 import rehypePrettyCode from "rehype-pretty-code"
 import { Icons } from "@/components/icons"
-import { ExternalLink, CheckCircle2, StickerIcon } from "lucide-react"
+import { ExternalLink, CheckCircle2, StickerIcon, ShieldCheck } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -69,13 +69,11 @@ export default async function ProjectPage({
           <div className="flex flex-col gap-6">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <div className="flex items-center bg-zinc-900 text-white dark:bg-white dark:text-black rounded-xl px-4 py-1.5 shadow-lg">
-                  <h1 className="text-xl md:text-2xl font-bold tracking-tight">
+                <Badge variant="outline" className="rounded-full px-4 py-1.5 border-black/10 text-xs bg-white dark:bg-zinc-900 shadow-sm">
+                  <StickerIcon className="mr-2 size-4 fill-[#A3C0E0] stroke-1 text-neutral-800" />
+                  <h1 className="text-xl md:text-2xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200">
                     {project.title}
                   </h1>
-                </div>
-                <Badge variant="outline" className="rounded-full px-2 py-0 h-6 border-black/10 text-[10px] bg-white dark:bg-zinc-900">
-                  <StickerIcon className="mr-1 size-3 fill-[#A3C0E0] stroke-1" /> Manifest
                 </Badge>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -148,7 +146,7 @@ export default async function ProjectPage({
                   key={index}
                   className="bg-card/30 backdrop-blur-sm border-zinc-200/50 shadow-sm transition-all hover:shadow-md p-4"
                 >
-                  <div className="flex flex-col gap-3 h-full">
+                  <div className="flex flex-col gap-3 h-full text-left">
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
                       <CheckCircle2 className="size-4" />
                     </div>
