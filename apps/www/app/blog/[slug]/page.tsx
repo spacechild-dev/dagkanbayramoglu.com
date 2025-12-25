@@ -90,10 +90,7 @@ export default async function BlogPostPage({
                 [
                   rehypePrettyCode,
                   {
-                    theme: {
-                      dark: "github-dark",
-                      light: "github-light-default",
-                    },
+                    theme: "github-light-default",
                   },
                 ],
               ],

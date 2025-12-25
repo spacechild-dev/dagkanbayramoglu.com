@@ -26,7 +26,7 @@ export function Pre({
   }, [children])
 
   return (
-    <div className="relative group my-6">
+    <div className="relative group my-6 not-prose">
       {language && (
         <div className="absolute left-4 top-0 -translate-y-1/2 rounded-md bg-muted px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground border border-border z-20">
           {language}
@@ -38,7 +38,7 @@ export function Pre({
       <pre
         ref={preRef}
         className={cn(
-          "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-xl border bg-zinc-950/50 py-4 dark:bg-zinc-900/50 backdrop-blur-sm",
+          "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-xl border border-zinc-200/50 bg-white py-4 shadow-sm",
           className
         )}
         {...props}
