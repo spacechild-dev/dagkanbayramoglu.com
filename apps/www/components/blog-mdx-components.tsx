@@ -1,8 +1,10 @@
 "use client"
 
 import * as React from "react"
+import { useLayoutEffect, useRef, useState } from "react"
+import { Check, Copy } from "lucide-react"
+import { motion, AnimatePresence } from "motion/react"
 import { cn } from "@/lib/utils"
-import { CopyButton } from "@/components/copy-button"
 
 interface PreProps extends React.HTMLAttributes<HTMLPreElement> {
   "data-language"?: string
@@ -16,8 +18,10 @@ export function Pre({
   "data-theme": theme,
   ...props
 }: PreProps) {
-  const preRef = React.useRef<HTMLPreElement>(null)
-  const [code, setCode] = React.useState("")
+  const preRef = useRef<HTMLPreElement>(null)
+  const [code, setCode] = useState("")
+  const [copied, setCopied] = useState(false)
+  const [hasOverflow, setHasOverflow] = useState(false)
 
   React.useEffect(() => {
     if (preRef.current) {
@@ -25,26 +29,113 @@ export function Pre({
     }
   }, [children])
 
+  useLayoutEffect(() => {
+    const checkOverflow = () => {
+      if (preRef.current) {
+        const hasHorizontalOverflow =
+          preRef.current.scrollWidth > preRef.current.clientWidth
+        setHasOverflow(hasHorizontalOverflow)
+      }
+    }
+
+    checkOverflow()
+    const resizeObserver = new ResizeObserver(checkOverflow)
+    if (preRef.current) {
+      resizeObserver.observe(preRef.current)
+    }
+
+    return () => {
+      resizeObserver.disconnect()
+    }
+  }, [])
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(code)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
   return (
     <div className="relative group my-6 not-prose">
-      {/* Header bar with language and copy button */}
-      <div className="flex items-center justify-between px-4 py-1.5 border border-zinc-300/50 rounded-t-xl bg-[#f5f2e9]/80 backdrop-blur-sm">
-        <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 font-bold">
-          {language || "code"}
-        </div>
-        <CopyButton value={code} className="size-6 text-zinc-500 hover:text-zinc-900 hover:bg-zinc-200/50 transition-colors" />
-      </div>
-      {/* Code area */}
-      <pre
-        ref={preRef}
+      <div
         className={cn(
-          "mb-4 max-h-[650px] overflow-x-auto rounded-b-xl border border-t-0 border-zinc-300/50 bg-[#fdfbf7]/80 backdrop-blur-sm p-4 text-sm sm:text-base",
-          className
+          "group relative overflow-hidden rounded-2xl border p-0.5",
+          "border-zinc-950/10 dark:border-white/10",
+          "bg-zinc-50 dark:bg-white/5",
+          "text-zinc-950 dark:text-zinc-50"
         )}
-        {...props}
       >
-        {children}
-      </pre>
+        {/* Tab Bar Style Header */}
+        <div className="flex items-center relative pr-2.5 h-10 border-b border-zinc-950/5 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5">
+          <div className="flex-1 min-w-0 text-[10px] leading-6 rounded-tl-xl gap-1 flex items-center px-4 font-mono uppercase tracking-widest text-zinc-500 font-bold">
+            {language || "code"}
+          </div>
+          
+          {/* Copy Button */}
+          <motion.button
+            onClick={handleCopy}
+            whileTap={{ scale: 0.95 }}
+            className={cn(
+              "flex items-center gap-1.5 px-2 py-1 text-[10px] font-medium rounded-lg",
+              "text-zinc-500 dark:text-zinc-400",
+              "bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm",
+              "border border-zinc-200/50 dark:border-zinc-800/50",
+              "hover:bg-zinc-200/50 dark:hover:bg-zinc-700/70",
+              "hover:text-zinc-950 dark:hover:text-zinc-50",
+              "transition-all duration-150"
+            )}
+            aria-label="Copy code"
+          >
+            <span className="relative size-3">
+              <AnimatePresence mode="wait">
+                {copied ? (
+                  <motion.div
+                    key="check"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    className="absolute inset-0"
+                  >
+                    <Check className="size-full" />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="copy"
+                    initial={{ scale: 0, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0, opacity: 0 }}
+                    className="absolute inset-0"
+                  >
+                    <Copy className="size-full" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </span>
+            <span>{copied ? "Copied" : "Copy"}</span>
+          </motion.button>
+        </div>
+
+        {/* Code area */}
+        <pre
+          ref={preRef}
+          className={cn(
+            "p-4 text-sm leading-relaxed m-0 overflow-x-auto",
+            "bg-white dark:bg-zinc-950/50 rounded-b-xl",
+            "scrollbar-thin scrollbar-thumb-rounded",
+            "scrollbar-thumb-black/15 hover:scrollbar-thumb-black/20",
+            "dark:scrollbar-thumb-white/20 dark:hover:scrollbar-thumb-white/25",
+            "[&::-webkit-scrollbar]:h-2",
+            "[&::-webkit-scrollbar-thumb]:rounded-full",
+            "[&::-webkit-scrollbar-thumb]:bg-black/15",
+            "[&::-webkit-scrollbar-thumb]:dark:bg-white/20",
+            "[&::-webkit-scrollbar-track]:bg-transparent",
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </pre>
+      </div>
     </div>
   )
 }
@@ -96,7 +187,7 @@ export const components = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold text-zinc-800",
+        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold text-zinc-800 dark:text-zinc-200",
         className
       )}
       {...props}

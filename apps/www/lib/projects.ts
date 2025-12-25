@@ -16,6 +16,8 @@ export interface Project {
   href: string
   github: string
   img?: string
+  keyFeatures?: string[]
+  screenshots?: string[]
 }
 
 export function getAllProjects(): Project[] {
@@ -44,27 +46,14 @@ export function getAllProjects(): Project[] {
         href: data.href || "",
         github: data.github || "",
         img: data.img || null,
+        keyFeatures: data.keyFeatures || [],
+        screenshots: data.screenshots || [],
       }
     })
     .filter((project) => project.published)
     .sort((a, b) => (a.date > b.date ? -1 : 1))
 
   return allProjects
-}
-
-export function getAllProjectTags(): string[] {
-  const projects = getAllProjects()
-  const tags = new Set<string>()
-  projects.forEach((project) => {
-    project.tags.forEach((tag) => tags.add(tag))
-  })
-  return Array.from(tags).sort()
-}
-
-export function getProjectsByTag(tag: string): Project[] {
-  return getAllProjects().filter((project) =>
-    project.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
-  )
 }
 
 export function getProject(slug: string): Project | null {
@@ -85,6 +74,8 @@ export function getProject(slug: string): Project | null {
       href: data.href || "",
       github: data.github || "",
       img: data.img || null,
+      keyFeatures: data.keyFeatures || [],
+      screenshots: data.screenshots || [],
     }
   } catch {
     return null
