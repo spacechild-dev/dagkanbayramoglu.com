@@ -9,7 +9,7 @@ import {
   MinimalCardDescription,
   MinimalCardTitle,
   MinimalCardImage,
-} from "@/components/ui/minimal-card"
+} from "@/registry/default/ui/minimal-card"
 import { getAllProjects } from "@/lib/projects"
 
 export const metadata = {

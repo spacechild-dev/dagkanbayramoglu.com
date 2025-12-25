@@ -9,7 +9,7 @@ import {
   MinimalCardDescription,
   MinimalCardTitle,
   MinimalCardImage,
-} from "@/components/ui/minimal-card"
+} from "@/registry/default/ui/minimal-card"
 
 export async function generateStaticParams() {
   const tags = getAllProjectTags()

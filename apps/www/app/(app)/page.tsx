@@ -13,7 +13,7 @@ import {
   MinimalCardDescription,
   MinimalCardTitle,
   MinimalCardImage,
-} from "@/components/ui/minimal-card"
+} from "@/registry/default/ui/minimal-card"
 
 export default function HomePage() {
   const recentPosts = getAllBlogPosts().slice(0, 3)
