@@ -62,13 +62,10 @@ export default function HomePage() {
         {/* Blog Section */}
         <section className="mt-32 space-y-8">
           <div className="flex items-center justify-between px-2">
-            <div className="flex items-center gap-3">
-              <h2 className="text-3xl font-bold tracking-tight">Recent Posts</h2>
-              <Badge variant="outline" className="rounded-full px-2 py-0 h-6 border-black/10 text-[10px] bg-white dark:bg-zinc-900 shadow-sm">
-                <Newspaper className="mr-1 size-3 fill-[#D2F583] stroke-1 text-neutral-800" /> New
-              </Badge>
-            </div>
-            <Link href="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">View All →</Link>
+            <Badge variant="outline" className="rounded-full px-2 py-0 h-6 border-black/10 text-[10px] bg-white dark:bg-zinc-900 shadow-sm">
+              <Newspaper className="mr-1 size-3 fill-[#D2F583] stroke-1 text-neutral-800" /> Recent Posts
+            </Badge>
+            <Link href="/blog" className="text-[10px] font-bold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-widest">View All →</Link>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-1 px-2">
@@ -79,11 +76,11 @@ export default function HomePage() {
                 <Link key={post.slug} href={`/blog/${post.slug}`} className="group block no-underline">
                   <Card className="group h-full overflow-hidden rounded-2xl border-none p-0 shadow-[0px_1px_1px_0px_rgba(0,_0,_0,_0.05),_0px_1px_1px_0px_rgba(255,_252,_240,_0.5)_inset,_0px_0px_0px_1px_hsla(0,_0%,_100%,_0.1)_inset,_0px_0px_1px_0px_rgba(28,_27,_26,_0.5)] transition-all brightness-100 hover:brightness-105 bg-white dark:bg-zinc-900/50">
                     <div className="flex h-full flex-col pt-5 pb-4">
-                      <div className="flex-1 px-5">
+                      <div className="flex-1 px-5 text-left">
                         <h3 className="text-lg font-bold tracking-tight group-hover:text-primary transition-colors">
                           {post.title}
                         </h3>
-                        <div className="mt-2 text-sm leading-relaxed tracking-tight text-muted-foreground line-clamp-2">
+                        <div className="mt-2 text-sm leading-relaxed tracking-tight text-muted-foreground line-clamp-2 font-normal">
                           {post.description}
                         </div>
                       </div>
@@ -113,13 +110,10 @@ export default function HomePage() {
         {/* Projects Section */}
         <section className="mt-32 space-y-8">
           <div className="flex items-center justify-between px-2">
-            <div className="flex items-center gap-3">
-              <h2 className="text-3xl font-bold tracking-tight">Projects</h2>
-              <Badge variant="outline" className="rounded-full px-2 py-0 h-6 border-black/10 text-[10px] bg-white dark:bg-zinc-900 shadow-sm">
-                <StickerIcon className="mr-1 size-3 fill-[#A3C0E0] stroke-1 text-neutral-800" /> Manifest
-              </Badge>
-            </div>
-            <Link href="/projects" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">View All →</Link>
+            <Badge variant="outline" className="rounded-full px-2 py-0 h-6 border-black/10 text-[10px] bg-white dark:bg-zinc-900 shadow-sm">
+              <StickerIcon className="mr-1 size-3 fill-[#A3C0E0] stroke-1 text-neutral-800" /> Projects
+            </Badge>
+            <Link href="/projects" className="text-[10px] font-bold text-muted-foreground hover:text-foreground transition-colors uppercase tracking-widest">View All →</Link>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 px-2">
@@ -139,6 +133,7 @@ export default function HomePage() {
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-zinc-50 to-zinc-100 dark:from-zinc-900 dark:to-zinc-950 flex items-center justify-center overflow-hidden">
+                        {/* Custom Infographic for projects without image */}
                         <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]">
                           <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <pattern id="project-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
