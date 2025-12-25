@@ -27,18 +27,20 @@ export function Pre({
 
   return (
     <div className="relative group my-6 not-prose">
-      {language && (
-        <div className="absolute left-4 top-0 -translate-y-1/2 rounded-md bg-muted px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground border border-border z-20">
-          {language}
-        </div>
-      )}
-      <div className="absolute right-4 top-2 z-20 opacity-0 group-hover:opacity-100 transition-opacity">
-        <CopyButton value={code} className="hover:bg-muted" />
+      <div className="flex items-center justify-between px-4 py-2 border border-b-0 rounded-t-xl bg-[#f5f2e9] border-zinc-300/50">
+        {language ? (
+          <div className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground font-semibold">
+            {language}
+          </div>
+        ) : (
+          <div />
+        )}
+        <CopyButton value={code} className="size-7 hover:bg-zinc-200/50 text-zinc-600" />
       </div>
       <pre
         ref={preRef}
         className={cn(
-          "mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-xl border border-zinc-200/50 bg-white py-4 shadow-sm",
+          "mb-4 max-h-[650px] overflow-x-auto rounded-b-xl border border-zinc-300/50 bg-[#fdfbf7] p-4 shadow-sm",
           className
         )}
         {...props}
