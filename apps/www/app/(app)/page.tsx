@@ -6,8 +6,9 @@ import { getAllBlogPosts } from "@/lib/blog"
 import { getAllProjects } from "@/lib/projects"
 import { siteConfig } from "@/config/site"
 import { Icons } from "@/components/icons"
-import { ExternalLink, ShieldCheck, StickerIcon, Flame, Newspaper, Zap } from "lucide-react"
+import { ExternalLink, ShieldCheck, StickerIcon, Flame, Newspaper, Zap, ArrowUpRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { Card } from "@/components/ui/card"
 import {
   MinimalCard,
   MinimalCardDescription,
@@ -27,7 +28,7 @@ export default function HomePage() {
       <div className="container relative py-12 md:pt-24 max-w-3xl">
         {/* Hero Section */}
         <section className="flex flex-col items-center gap-8 text-center">
-          <div className="mx-auto max-w-4xl space-y-6 md:space-y-8">
+          <div className="mx-auto space-y-6 md:space-y-8">
             <p className="text-center text-sm leading-relaxed text-foreground md:text-base font-medium">
               I’m Dağkan (sounds like “DAH-kahn”). I don’t really consider myself a developer, but I love exploring and experimenting with different topics—especially anything related to data-driven performance marketing, analytics, and martech.
             </p>
@@ -58,7 +59,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Blog Section */}
+        {/* Blog Section - Replicating 'New Blocks' Design */}
         <section className="mt-32 space-y-8">
           <div className="flex items-center justify-between px-2">
             <div className="flex items-center gap-3">
@@ -70,25 +71,41 @@ export default function HomePage() {
             <Link href="/blog" className="text-xs font-semibold text-muted-foreground hover:text-foreground transition-colors">View All →</Link>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-1 px-2">
+          <div className="grid gap-4 sm:grid-cols-1 px-2">
             {recentPosts.length === 0 ? (
               <p className="col-span-full text-center text-muted-foreground">No blog posts yet.</p>
             ) : (
               recentPosts.map((post) => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} className="block no-underline group">
-                  <MinimalCard className="bg-card/50 backdrop-blur-sm border-zinc-200/50 shadow-sm transition-all hover:shadow-md p-6">
-                    <div className="flex flex-col gap-3 text-left">
-                      <MinimalCardTitle className="text-xl group-hover:text-primary transition-colors">
-                        {post.title}
-                      </MinimalCardTitle>
-                      <MinimalCardDescription className="text-sm text-muted-foreground line-clamp-2 leading-relaxed font-normal">
-                        {post.description}
-                      </MinimalCardDescription>
-                      <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase tracking-widest font-bold">
-                        <time dateTime={post.date}>{new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</time>
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="group block no-underline">
+                  <Card className="group h-full overflow-hidden rounded-2xl border-none p-0 shadow-[0px_1px_1px_0px_rgba(0,_0,_0,_0.05),_0px_1px_1px_0px_rgba(255,_252,_240,_0.5)_inset,_0px_0px_0px_1px_hsla(0,_0%,_100%,_0.1)_inset,_0px_0px_1px_0px_rgba(28,_27,_26,_0.5)] transition-all brightness-100 hover:brightness-105 bg-white dark:bg-zinc-900/50">
+                    <div className="flex h-full flex-col pt-5 pb-4">
+                      <div className="flex-1 px-5">
+                        <div className="flex items-start justify-between">
+                          <h3 className="text-lg font-bold tracking-tight group-hover:text-primary transition-colors">
+                            {post.title}
+                          </h3>
+                        </div>
+                        <div className="mt-2 text-sm leading-relaxed tracking-tight text-muted-foreground line-clamp-2">
+                          {post.description}
+                        </div>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between gap-3 px-5 border-t border-zinc-100 dark:border-zinc-800/50 pt-3">
+                        <div className="flex items-center gap-3">
+                          <span className="text-[10px] font-mono font-bold text-muted-foreground/60 uppercase tracking-widest">
+                            {new Date(post.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                          </span>
+                          <div className="flex gap-1.5">
+                            {post.tags.slice(0, 2).map(tag => (
+                              <span key={tag} className="text-[10px] text-primary/70 font-bold italic">#{tag}</span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="text-[10px] font-bold text-muted-foreground/40 group-hover:text-primary transition-colors duration-300 ease-out flex items-center gap-1 uppercase tracking-tighter">
+                          Read More <ArrowUpRight className="size-3" />
+                        </div>
                       </div>
                     </div>
-                  </MinimalCard>
+                  </Card>
                 </Link>
               ))
             )}
@@ -133,7 +150,7 @@ export default function HomePage() {
                           </svg>
                         </div>
                         {project.slug === 'flow-otp' ? (
-                          <div className="relative flex flex-col items-center gap-4 py-8">
+                          <div className="relative flex flex-col items-center gap-4 py-8 scale-75">
                             <div className="relative">
                               <div className="absolute -inset-4 bg-blue-500/20 rounded-full blur-2xl animate-pulse" />
                               <div className="relative flex h-20 w-20 items-center justify-center rounded-3xl bg-white dark:bg-zinc-900 shadow-2xl border border-zinc-200 dark:border-zinc-800 rotate-12 group-hover:rotate-0 transition-transform duration-500">
