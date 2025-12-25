@@ -5,13 +5,38 @@ import { buttonVariants } from "@/components/ui/button"
 import { getAllBlogPosts } from "@/lib/blog"
 import { siteConfig } from "@/config/site"
 import { Icons } from "@/components/icons"
-import { ExternalLink, ShieldCheck } from "lucide-react"
+import { ExternalLink, ShieldCheck, StickerIcon } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import {
+  MinimalCard,
+  MinimalCardDescription,
+  MinimalCardTitle,
+  MinimalCardImage,
+} from "@/components/ui/minimal-card"
 
 export default function HomePage() {
   const recentPosts = getAllBlogPosts().slice(0, 3)
 
   const btnClass = "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-8 gap-1.5 px-3 has-[>svg]:px-2.5 rounded-xl transition-all hover:bg-muted/50"
   const primaryBtnClass = "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-8 gap-1.5 px-3 has-[>svg]:px-2.5 rounded-xl transition-all"
+
+  const projects = [
+    {
+      title: "Spotify MixtapeKit",
+      description: "A comprehensive toolkit for Spotify enthusiasts. Create, manage, and analyze mixtapes.",
+      href: "https://mixtapekit.spacechild.dev/",
+      github: "https://github.com/spacechild-dev/spotify-mixtapekit",
+      img: "/mixtapekit.png",
+      icon: <Icons.spotify className="h-5 w-5 text-green-500" />
+    },
+    {
+      title: "FlowOTP",
+      description: "A modern and secure two-factor authentication (2FA) management solution.",
+      href: "https://github.com/spacechild-dev/FlowOTP",
+      github: "https://github.com/spacechild-dev/FlowOTP",
+      icon: <ShieldCheck className="h-5 w-5 text-blue-500" />
+    }
+  ]
 
   return (
     <div className="isolate min-h-screen overflow-hidden pb-8 sm:pb-12">
@@ -29,18 +54,8 @@ export default function HomePage() {
             </p>
           </div>
           <div className="flex w-full flex-wrap items-center justify-center gap-4 py-4 md:pb-2">
-            <Link
-              className={primaryBtnClass}
-              href="/blog"
-            >
-              Blog Posts
-            </Link>
-            <Link
-              target="_blank"
-              rel="noreferrer"
-              className={btnClass}
-              href={siteConfig.links.github}
-            >
+            <Link className={primaryBtnClass} href="/blog">Blog Posts</Link>
+            <Link target="_blank" rel="noreferrer" className={btnClass} href={siteConfig.links.github}>
               <Icons.gitHub className="size-4" /> GitHub
             </Link>
             
@@ -68,42 +83,21 @@ export default function HomePage() {
         <section className="mt-24 space-y-8 max-w-3xl mx-auto">
           <div className="flex items-center justify-between px-2">
             <h2 className="text-3xl font-bold">Recent Posts</h2>
-            <Link
-              href="/blog"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              View All →
-            </Link>
+            <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground">View All →</Link>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-1 px-2">
             {recentPosts.length === 0 ? (
-              <p className="col-span-full text-center text-muted-foreground">
-                No blog posts yet.
-              </p>
+              <p className="col-span-full text-center text-muted-foreground">No blog posts yet.</p>
             ) : (
               recentPosts.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/blog/${post.slug}`}
-                  className="group flex flex-col gap-3 rounded-xl border bg-card p-6 transition-all hover:shadow-md"
-                >
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="group flex flex-col gap-3 rounded-xl border bg-card p-6 transition-all hover:shadow-md">
                   <div className="flex flex-col gap-2">
-                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2">
-                      {post.description}
-                    </p>
+                    <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">{post.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2">{post.description}</p>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </time>
+                    <time dateTime={post.date}>{new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
                   </div>
                 </Link>
               ))
@@ -114,103 +108,48 @@ export default function HomePage() {
         {/* Projects Section */}
         <section className="mt-24 space-y-8 max-w-3xl mx-auto">
           <div className="flex items-center justify-between px-2">
-            <h2 className="text-3xl font-bold">Projects</h2>
-            <Link
-              href="/projects"
-              className="text-sm text-muted-foreground hover:text-foreground"
-            >
-              View All →
-            </Link>
+            <div className="flex items-center gap-2">
+              <h2 className="text-3xl font-bold">Projects</h2>
+              <Badge variant="outline" className="rounded-full px-2 py-0 h-5 border-black/10 text-[10px]">
+                <StickerIcon className="mr-1 size-2.5 fill-[#A3C0E0] stroke-1" /> Manifest
+              </Badge>
+            </div>
+            <Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground">View All →</Link>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-1 px-2">
-            {/* Spotify MixtapeKit */}
-            <div className="group flex flex-col gap-4 rounded-xl border bg-card p-0 overflow-hidden transition-all hover:shadow-md">
-              <div className="relative aspect-video w-full overflow-hidden border-b">
-                <Image 
-                  src="/mixtapekit.png" 
-                  alt="Spotify MixtapeKit" 
-                  fill 
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-col gap-4 p-6">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/10 text-green-500">
-                      <Icons.spotify className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-semibold">Spotify MixtapeKit</h3>
-                      <p className="text-sm text-muted-foreground">Web App / Music Tools</p>
+          <div className="grid gap-6 sm:grid-cols-2 px-2">
+            {projects.map((project) => (
+              <MinimalCard key={project.title} className="bg-card/50 backdrop-blur-sm border-zinc-200/50 shadow-sm transition-all hover:shadow-md">
+                {project.img && (
+                  <MinimalCardImage src={project.img} alt={project.title} />
+                )}
+                <div className="p-5 flex flex-col h-full">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-md bg-muted/50">
+                        {project.icon}
+                      </div>
+                      <MinimalCardTitle className="text-lg">
+                        {project.title}
+                      </MinimalCardTitle>
                     </div>
                   </div>
-                  <div className="flex gap-2">
-                    <Link
-                      href="https://github.com/spacechild-dev/spotify-mixtapekit"
-                      target="_blank"
-                      rel="noreferrer"
-                      className={btnClass}
-                    >
-                      <Icons.gitHub className="h-4 w-4" />
-                      <span>GitHub</span>
+                  <MinimalCardDescription className="text-xs text-muted-foreground line-clamp-2 mb-4">
+                    {project.description}
+                  </MinimalCardDescription>
+                  <div className="flex gap-2 mt-auto">
+                    <Link href={project.github} target="_blank" rel="noreferrer" className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-1">
+                      <Icons.gitHub className="size-3" /> GitHub
                     </Link>
-                    <Link
-                      href="https://mixtapekit.spacechild.dev/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className={btnClass}
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      <span>Visit</span>
+                    <Link href={project.href} target="_blank" rel="noreferrer" className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-1">
+                      <ExternalLink className="size-3" /> Visit
                     </Link>
                   </div>
                 </div>
-                <p className="text-muted-foreground">
-                  A comprehensive toolkit for Spotify enthusiasts. Create, manage, and analyze your mixtapes with advanced features.
-                </p>
-                <div className="flex gap-2">
-                  <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">React</span>
-                  <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Spotify API</span>
-                </div>
-              </div>
-            </div>
-
-            {/* FlowOTP */}
-            <div className="group flex flex-col gap-4 rounded-xl border bg-card p-6 transition-all hover:shadow-md">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500">
-                    <ShieldCheck className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold">FlowOTP</h3>
-                    <p className="text-sm text-muted-foreground">Security / 2FA Tool</p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <Link
-                    href="https://github.com/spacechild-dev/FlowOTP"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={btnClass}
-                  >
-                    <Icons.gitHub className="h-4 w-4" />
-                    <span>GitHub</span>
-                  </Link>
-                </div>
-              </div>
-              <p className="text-muted-foreground">
-                A modern and secure two-factor authentication (2FA) management solution. Simple, clean, and efficient.
-              </p>
-              <div className="flex gap-2">
-                <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Security</span>
-                <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">2FA</span>
-              </div>
-            </div>
+              </MinimalCard>
+            ))}
           </div>
         </section>
-
       </div>
     </div>
   )
