@@ -11,27 +11,31 @@ import { Icons } from "@/components/icons"
 
 export function MainNav() {
   const pathname = usePathname()
+  const isActive = (path: string) => pathname?.startsWith(path)
 
   return (
-    <div className="mr-4 hidden md:flex ">
-      <Link href="/" className="mr-4 flex items-center space-x-2">
-        <Icons.cultLogoBasic className="size-6 fill-black dark:fill-white " />
-        <span className="sr-only">{siteConfig.name}</span>
+    <div className="flex items-center gap-6">
+      <Link href="/" className="flex items-center gap-2 group">
+        <div className="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center group-hover:bg-emerald-500/20 transition-colors">
+          <Icons.disc className="size-5 text-emerald-500" />
+        </div>
+        <span className="font-bold text-foreground tracking-tight">MixtapeKit</span>
       </Link>
-      <nav className="flex items-center gap-4 text-sm lg:gap-6">
+      
+      <div className="hidden md:flex items-center gap-1 ml-4 border-l border-border pl-4">
         {docsConfig.mainNav.map((item) => (
           <Link
             key={item.href}
             href={item.href!}
             className={cn(
-              "text-sm font-semibold transition-colors hover:text-foreground/80",
-              pathname === item.href ? "text-foreground" : "text-foreground/60"
+              "nav-link",
+              isActive(item.href!) ? "active" : ""
             )}
           >
             {item.title}
           </Link>
         ))}
-      </nav>
+      </div>
     </div>
   )
 }
