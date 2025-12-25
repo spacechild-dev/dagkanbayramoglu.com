@@ -20,9 +20,9 @@ export default function BlogPage() {
     <div className="container max-w-3xl py-12">
       <div className="flex flex-col gap-12">
         <div className="px-2">
-          <Badge variant="outline" className="rounded-full px-3 py-1 border-black/10 text-xs bg-white dark:bg-zinc-900 shadow-sm">
+          <Badge variant="outline" className="rounded-full px-3 py-1 border-black/10 text-xs bg-white dark:bg-zinc-900 shadow-sm h-8">
             <Newspaper className="mr-2 size-3.5 fill-[#D2F583] stroke-1 text-neutral-800" />
-            <span className="font-bold tracking-tight text-neutral-800 dark:text-neutral-200 text-base">Blog</span>
+            <span className="font-bold tracking-tight text-neutral-800 dark:text-neutral-200 text-sm">Blog</span>
           </Badge>
           <p className="text-muted-foreground mt-4 text-base md:text-lg px-1">
             Sharing my thoughts, projects, and what I've learned
