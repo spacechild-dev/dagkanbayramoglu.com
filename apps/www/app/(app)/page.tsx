@@ -25,7 +25,7 @@ export default function HomePage() {
           </div>
           <div className="mx-auto max-w-3xl space-y-6 md:space-y-8">
             <p className="text-center text-lg leading-relaxed text-foreground md:text-xl ">
-              I'm not a software engineer, but I play one on the internet. Here, I showcase my 'barely working' projects—a chaotic mix of ambition, caffeine, and code that somehow runs. Welcome to my digital playground!
+              I’m Dağkan (sounds like “DAH-kahn”). I don’t really consider myself a developer, but I love exploring and experimenting with different topics—especially anything related to data-driven performance marketing, analytics, and martech. That’s actually my job, too! This site is both a personal playground and a space where I test things like Google Tag Manager, GA4, server-side GTM, Facebook CAPI, and offline conversions (though, fair warning: I tend to break stuff with my frequent updates and rarely bother to fix it). If you accept cookies here (assuming that’s even working), you’ll help make my experiments more effective—so thanks in advance. Currently, I’m working as Performance Marketing Team Lead at Roipublic, and I’m not taking on any side projects at the moment.
             </p>
           </div>
           <div className="flex w-full flex-wrap items-center justify-center gap-4 py-4 md:pb-2">
