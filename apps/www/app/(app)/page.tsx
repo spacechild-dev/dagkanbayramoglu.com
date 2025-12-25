@@ -4,9 +4,13 @@ import { buttonVariants } from "@/components/ui/button"
 import { getAllBlogPosts } from "@/lib/blog"
 import { siteConfig } from "@/config/site"
 import { Icons } from "@/components/icons"
+import { ExternalLink, ShieldCheck } from "lucide-react"
 
 export default function HomePage() {
   const recentPosts = getAllBlogPosts().slice(0, 3)
+
+  const btnClass = "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-8 gap-1.5 px-3 has-[>svg]:px-2.5 rounded-xl transition-all hover:bg-muted/50"
+  const primaryBtnClass = "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground shadow-xs hover:bg-primary/90 h-8 gap-1.5 px-3 has-[>svg]:px-2.5 rounded-xl transition-all"
 
   return (
     <div className="isolate min-h-screen overflow-hidden pb-8 sm:pb-12">
@@ -25,10 +29,7 @@ export default function HomePage() {
           </div>
           <div className="flex w-full flex-wrap items-center justify-center gap-4 py-4 md:pb-2">
             <Link
-              className={cn(
-                buttonVariants({ size: "lg" }),
-                "rounded-xl transition-all"
-              )}
+              className={primaryBtnClass}
               href="/blog"
             >
               Blog Posts
@@ -36,16 +37,12 @@ export default function HomePage() {
             <Link
               target="_blank"
               rel="noreferrer"
-              className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "rounded-xl transition-all hover:bg-muted/50"
-              )}
+              className={btnClass}
               href={siteConfig.links.github}
             >
-              <Icons.gitHub className="mr-2 size-5" /> GitHub
+              <Icons.gitHub className="size-4" /> GitHub
             </Link>
             
-            {/* Social Icons integrated into the same row */}
             <div className="flex items-center gap-3 px-2">
               <Link href="https://www.linkedin.com/in/dagkanbayramoglu/" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Icons.linkedin className="size-5" />
@@ -110,6 +107,87 @@ export default function HomePage() {
                 </Link>
               ))
             )}
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section className="mt-24 space-y-8 max-w-3xl mx-auto">
+          <div className="flex items-center justify-between px-2">
+            <h2 className="text-3xl font-bold">Projects</h2>
+            <Link
+              href="/projects"
+              className="text-sm text-muted-foreground hover:text-foreground"
+            >
+              View All →
+            </Link>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-1 px-2">
+            {/* Spotify MixtapeKit */}
+            <div className="group flex flex-col gap-4 rounded-xl border bg-card p-6 transition-all hover:shadow-md">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-500/10 text-green-500">
+                    <Icons.spotify className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">Spotify MixtapeKit</h3>
+                    <p className="text-sm text-muted-foreground">Web App / Music Tools</p>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <Link
+                    href="https://github.com/spacechild-dev/spotify-mixtapekit"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={btnClass}
+                  >
+                    <Icons.gitHub className="h-4 w-4" />
+                    <span>GitHub</span>
+                  </Link>
+                </div>
+              </div>
+              <p className="text-muted-foreground">
+                A comprehensive toolkit for Spotify enthusiasts. Create, manage, and analyze your mixtapes with advanced features.
+              </p>
+              <div className="flex gap-2">
+                <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">React</span>
+                <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Spotify API</span>
+              </div>
+            </div>
+
+            {/* FlowOTP */}
+            <div className="group flex flex-col gap-4 rounded-xl border bg-card p-6 transition-all hover:shadow-md">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-500">
+                    <ShieldCheck className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold">FlowOTP</h3>
+                    <p className="text-sm text-muted-foreground">Security / 2FA Tool</p>
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <Link
+                    href="https://github.com/spacechild-dev/FlowOTP"
+                    target="_blank"
+                    rel="noreferrer"
+                    className={btnClass}
+                  >
+                    <Icons.gitHub className="h-4 w-4" />
+                    <span>GitHub</span>
+                  </Link>
+                </div>
+              </div>
+              <p className="text-muted-foreground">
+                A modern and secure two-factor authentication (2FA) management solution. Simple, clean, and efficient.
+              </p>
+              <div className="flex gap-2">
+                <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">Security</span>
+                <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium ring-1 ring-inset ring-gray-500/10">2FA</span>
+              </div>
+            </div>
           </div>
         </section>
 
