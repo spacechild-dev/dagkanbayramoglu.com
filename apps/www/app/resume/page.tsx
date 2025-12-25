@@ -43,7 +43,7 @@ export default function ResumePage() {
 
         {/* Professional Summary */}
         <section>
-          <h2 className="text-2xl font-bold mb-4">Professional Summary</h2>
+          <h2 className="text-2xl font-bold mb-4 border-b pb-2">Professional Summary</h2>
           <p className="text-muted-foreground leading-relaxed">
             Highly accomplished and results-driven Digital Marketing professional with extensive experience in performance marketing, team leadership, and strategic campaign management. Proven ability to drive ROI, optimize media budgets, and coordinate cross-functional teams to achieve operational alignment and business growth. Expertise spans multi-platform campaign execution, analytics, automation, and CRM insights, with a strong focus on mentorship, development, and process improvement.
           </p>
@@ -51,95 +51,120 @@ export default function ResumePage() {
 
         {/* Experience */}
         <section>
-          <h2 className="text-2xl font-bold mb-6">Experience</h2>
-          <div className="flex flex-col gap-10">
-            {/* Current Role */}
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                <div>
-                  <h3 className="text-lg font-semibold">Digital Performance and Media Account Manager</h3>
-                  <p className="text-primary font-medium uppercase tracking-wider">OPTDCOM</p>
-                </div>
-                <span className="text-sm text-muted-foreground bg-muted px-2 py-0.5 rounded-md whitespace-nowrap">Oct 2025 – Present</span>
+          <h2 className="text-2xl font-bold mb-8 border-b pb-2">Experience</h2>
+          <div className="flex flex-col gap-12">
+            
+            {/* OPTDCOM */}
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                <h3 className="text-xl font-bold uppercase tracking-widest text-primary">OPTDCOM</h3>
+                <span className="text-sm text-muted-foreground italic">Hybrid (Istanbul, Türkiye)</span>
               </div>
-              <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
-                <li>Managing performance and media operations across multiple clients and verticals.</li>
-                <li>Coordinating strategy, reporting, and execution for performance marketing workflows.</li>
-                <li>Collaborating with creative, analytics, and technical teams to ensure operational alignment.</li>
-              </ul>
+              
+              <div className="flex flex-col gap-2 ml-1 border-l-2 pl-6 pb-2">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                  <h4 className="text-lg font-semibold">Digital Performance and Media Account Manager</h4>
+                  <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Oct 2025 – Present</span>
+                </div>
+                <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
+                  <li>Managing performance and media operations across multiple clients and verticals.</li>
+                  <li>Coordinating strategy, reporting, and execution for performance marketing workflows.</li>
+                  <li>Collaborating with creative, analytics, and technical teams to ensure operational alignment.</li>
+                </ul>
+              </div>
             </div>
 
-            {/* Previous Role: Team Lead */}
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                <div>
-                  <h3 className="text-lg font-semibold">Performance Marketing Team Lead</h3>
-                  <p className="text-primary font-medium uppercase tracking-wider">ROIPUBLIC</p>
-                </div>
-                <span className="text-sm text-muted-foreground bg-muted px-2 py-0.5 rounded-md whitespace-nowrap">Nov 2024 – Oct 2025</span>
+            {/* ROIPUBLIC */}
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                <h3 className="text-xl font-bold uppercase tracking-widest text-primary">ROIPUBLIC</h3>
+                <span className="text-sm text-muted-foreground italic">Hybrid (Istanbul, Türkiye)</span>
               </div>
-              <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
-                <li>Led a team of six with focus on mentorship, coordination, and performance marketing execution.</li>
-                <li>Provided hands-on leadership to support, unblock, and upskill the team without micromanaging.</li>
-                <li>Managed multi-platform campaigns (Google Ads, Meta, Criteo, TikTok, LinkedIn) and optimized media budgets.</li>
-                <li>Built dashboards via Looker Studio and delivered CRM insights through automated reporting pipelines.</li>
-                <li>Audited and improved tracking and attribution setups; supported CRM and offline conversion integrations.</li>
-              </ul>
+              
+              <div className="flex flex-col gap-8 ml-1 border-l-2 pl-6">
+                {/* Role 1 */}
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                    <h4 className="text-lg font-semibold">Performance Marketing Team Lead</h4>
+                    <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Nov 2024 – Oct 2025</span>
+                  </div>
+                  <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
+                    <li>Led a team of six with focus on mentorship, coordination, and performance marketing execution.</li>
+                    <li>Provided hands-on leadership to support, unblock, and upskill the team without micromanaging.</li>
+                    <li>Managed multi-platform campaigns (Google Ads, Meta, Criteo, TikTok, LinkedIn) and optimized media budgets.</li>
+                    <li>Built dashboards via Looker Studio and delivered CRM insights through automated reporting pipelines.</li>
+                    <li>Audited and improved tracking and attribution setups; supported CRM and offline conversion integrations.</li>
+                  </ul>
+                </div>
+
+                {/* Role 2 */}
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                    <h4 className="text-lg font-semibold">Sr. Performance Marketing Executive</h4>
+                    <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Feb 2024 – Oct 2024</span>
+                  </div>
+                  <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
+                    <li>Owned end-to-end campaign execution and reporting across performance platforms.</li>
+                    <li>Provided mentorship and hands-on guidance to junior team members from day one.</li>
+                    <li>Supported analytics, automation, and technical teams in measurement workflows.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            {/* Sr. Executive */}
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                <div>
-                  <h3 className="text-lg font-semibold">Sr. Performance Marketing Executive</h3>
-                  <p className="text-primary font-medium uppercase tracking-wider">ROIPUBLIC</p>
-                </div>
-                <span className="text-sm text-muted-foreground bg-muted px-2 py-0.5 rounded-md whitespace-nowrap">Feb 2024 – Oct 2024</span>
+            {/* PROFAJ */}
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
+                <h3 className="text-xl font-bold uppercase tracking-widest text-primary">PROFAJ</h3>
+                <span className="text-sm text-muted-foreground italic">On-site (Izmir, Türkiye)</span>
               </div>
-              <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
-                <li>Owned end-to-end campaign execution and reporting across performance platforms.</li>
-                <li>Provided mentorship and hands-on guidance to junior team members.</li>
-                <li>Supported analytics, automation, and technical teams in measurement workflows.</li>
-              </ul>
-            </div>
+              
+              <div className="flex flex-col gap-8 ml-1 border-l-2 pl-6">
+                {/* Role 1 */}
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                    <h4 className="text-lg font-semibold">Digital Marketing Team Lead</h4>
+                    <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Apr 2023 – Feb 2024</span>
+                  </div>
+                  <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
+                    <li>Provided strategic direction for a five-person marketing team.</li>
+                    <li>Facilitated 1:1s focused on performance, growth, and operational support.</li>
+                    <li>Managed workload distribution, performance tracking, and operational efficiency.</li>
+                  </ul>
+                </div>
 
-            {/* Previous Role: Team Lead 2 */}
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                <div>
-                  <h3 className="text-lg font-semibold">Digital Marketing Team Lead</h3>
-                  <p className="text-primary font-medium uppercase tracking-wider">PROFAJ</p>
+                {/* Role 2 */}
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                    <h4 className="text-lg font-semibold">Digital Marketing Specialist</h4>
+                    <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Apr 2023 – Apr 2024</span>
+                  </div>
+                  <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
+                    <li>Managed full-funnel campaigns across Google Ads, Meta Ads, Criteo, and LinkedIn.</li>
+                    <li>Built automated dashboards in Looker Studio and designed funnel-based campaign structures.</li>
+                    <li>Optimized tracking setups such as pixels, tags, and conversion events.</li>
+                  </ul>
                 </div>
-                <span className="text-sm text-muted-foreground bg-muted px-2 py-0.5 rounded-md whitespace-nowrap">Apr 2023 – Feb 2024</span>
-              </div>
-              <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
-                <li>Provided strategic direction for a five-person marketing team.</li>
-                <li>Facilitated 1:1s focused on performance, growth, and operational support.</li>
-                <li>Managed workload distribution, performance tracking, and operational efficiency.</li>
-              </ul>
-            </div>
 
-            {/* Specialist */}
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                <div>
-                  <h3 className="text-lg font-semibold">Digital Marketing Specialist</h3>
-                  <p className="text-primary font-medium uppercase tracking-wider">PROFAJ</p>
+                {/* Role 3 */}
+                <div className="flex flex-col gap-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                    <h4 className="text-lg font-semibold italic">Digital Marketing Intern</h4>
+                    <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Mar 2022</span>
+                  </div>
+                  <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
+                    <li>Supported campaign reporting and ad setup operations.</li>
+                    <li>Assisted with foundational tasks in a fast-paced performance-oriented environment.</li>
+                  </ul>
                 </div>
-                <span className="text-sm text-muted-foreground bg-muted px-2 py-0.5 rounded-md whitespace-nowrap">Apr 2023 – Apr 2024</span>
               </div>
-              <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
-                <li>Managed full-funnel campaigns across Google Ads, Meta Ads, Criteo, and LinkedIn.</li>
-                <li>Built automated dashboards in Looker Studio and designed funnel-based campaign structures.</li>
-                <li>Optimized tracking setups such as pixels, tags, and conversion events.</li>
-              </ul>
             </div>
           </div>
         </section>
 
         {/* Certifications */}
         <section>
-          <h2 className="text-2xl font-bold mb-6">Certifications</h2>
+          <h2 className="text-2xl font-bold mb-6 border-b pb-2">Certifications</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1 text-sm font-medium">
               <li>Criteo Programmatic Campaign Manager</li>
@@ -156,28 +181,28 @@ export default function ResumePage() {
 
         {/* Skills */}
         <section>
-          <h2 className="text-2xl font-bold mb-6">Skills & Tools</h2>
+          <h2 className="text-2xl font-bold mb-6 border-b pb-2">Skills & Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="font-semibold mb-3">Performance Marketing</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">Google Ads</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">Meta Ads</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">Criteo</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">TikTok Ads</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">LinkedIn Ads</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">Apple Search Ads</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">Google Ads</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">Meta Ads</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">Criteo</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">TikTok Ads</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">LinkedIn Ads</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">Apple Search Ads</span>
               </div>
             </div>
             <div>
               <h3 className="font-semibold mb-3">Analytics & Automation</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">GA4</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">GTM</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">Looker Studio</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">Python</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">JavaScript</span>
-                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border">Make / Zapier</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">GA4</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">GTM</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">Looker Studio</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">Python</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">JavaScript</span>
+                <span className="bg-muted px-2.5 py-1 rounded-md text-xs font-medium border border-border text-foreground">Make / Zapier</span>
               </div>
             </div>
           </div>
