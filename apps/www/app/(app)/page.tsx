@@ -89,8 +89,10 @@ export default function HomePage() {
                   <p className="relative z-10 mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">
                     {post.description}
                   </p>
-                  <div className="relative z-10 mt-4 flex items-center gap-4 text-xs font-bold text-accent-teal/80 uppercase tracking-tighter transition group-hover:text-accent-teal">
-                    Read article <ArrowUpRight className="ml-1 size-3" />
+                  <div className="relative z-10 mt-6 flex flex-wrap gap-2">
+                    {post.tags.slice(0, 3).map(tag => (
+                      <span key={tag} className="inline-block bg-white dark:bg-zinc-900 px-2.5 py-0.5 text-[10px] font-bold italic text-accent-teal/80 border border-accent-teal/10 rounded-md">#{tag}</span>
+                    ))}
                   </div>
                 </article>
               ))

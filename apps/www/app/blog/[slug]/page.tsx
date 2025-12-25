@@ -72,12 +72,12 @@ export default async function BlogPostPage({
             )}
           </div>
           {post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-3 mt-8">
+            <div className="flex flex-wrap gap-2 mt-8">
               {post.tags.map((tag) => (
                 <Link
                   key={tag}
                   href={`/blog/tags/${encodeURIComponent(tag)}`}
-                  className="inline-block text-xs font-bold italic text-accent-teal/70 hover:text-accent-teal transition-colors"
+                  className="inline-block bg-white dark:bg-zinc-900 px-3 py-1 text-xs font-bold italic text-accent-teal/80 hover:text-accent-teal border border-accent-teal/10 hover:border-accent-teal/30 rounded-md transition-all"
                 >
                   #{tag}
                 </Link>
