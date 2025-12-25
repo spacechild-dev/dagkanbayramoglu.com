@@ -56,6 +56,9 @@ export default async function BlogPostPage({
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight text-foreground">
             {post.title}
           </h1>
+          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed font-medium mb-8">
+            {post.description}
+          </p>
           <div className="flex items-center gap-4 mt-8 text-xs font-mono font-bold text-muted-foreground/60 uppercase tracking-widest border-b border-accent-teal/20 pb-8">
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString("en-US", {
