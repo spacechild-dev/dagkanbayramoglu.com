@@ -6,8 +6,13 @@ import Image from "next/image"
 import { components } from "@/components/blog-mdx-components"
 import rehypePrettyCode from "rehype-pretty-code"
 import { Icons } from "@/components/icons"
-import { ExternalLink, CheckCircle2 } from "lucide-react"
+import { ExternalLink, Github, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import {
+  MinimalCard,
+  MinimalCardDescription,
+  MinimalCardTitle,
+} from "@/registry/default/ui/minimal-card"
 
 export async function generateStaticParams() {
   const projects = getAllProjects()
@@ -118,26 +123,29 @@ export default async function ProjectPage({
           </div>
         </section>
 
-        {/* Middle Section: Key Features */}
+        {/* Middle Section: Key Features using MinimalCard */}
         {project.keyFeatures && project.keyFeatures.length > 0 && (
           <section className="space-y-12">
             <div className="space-y-4 text-center lg:text-left">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Key Features</h2>
               <div className="h-1 w-20 bg-primary rounded-full mx-auto lg:mx-0" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {project.keyFeatures.map((feature, index) => (
-                <div 
+                <MinimalCard 
                   key={index}
-                  className="flex flex-col gap-4 p-8 rounded-[2rem] border bg-card/30 backdrop-blur-sm shadow-sm hover:shadow-md transition-all hover:-translate-y-1 duration-300"
+                  className="bg-card/30 backdrop-blur-sm border-zinc-200/50 shadow-sm transition-all hover:shadow-md h-full p-6"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <CheckCircle2 className="size-6" />
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
+                    <CheckCircle2 className="size-5" />
                   </div>
-                  <p className="text-base font-semibold leading-snug text-foreground/90">
+                  <MinimalCardTitle className="text-lg mb-2">
                     {feature}
-                  </p>
-                </div>
+                  </MinimalCardTitle>
+                  <MinimalCardDescription className="text-sm text-muted-foreground">
+                    Core functionality designed for optimal performance and user experience.
+                  </MinimalCardDescription>
+                </MinimalCard>
               ))}
             </div>
           </section>
