@@ -21,7 +21,7 @@ export default function ProjectsPage() {
   const projects = getAllProjects()
 
   return (
-    <div className="container max-w-4xl py-12">
+    <div className="container max-w-3xl py-12">
       <div className="flex flex-col gap-12">
         <div className="relative w-full space-y-4">
           <Badge
@@ -40,72 +40,57 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-10">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
           {projects.map((project) => (
-            <div key={project.slug} className="flex flex-col gap-4">
-              <MinimalCard className="bg-card/50 backdrop-blur-sm border-zinc-200/50 shadow-sm transition-all hover:shadow-md h-full overflow-hidden">
-                {project.img && (
-                  <Link href={`/projects/${project.slug}`} className="block relative aspect-[16/10] w-full overflow-hidden border-b">
+            <Link key={project.slug} href={`/projects/${project.slug}`} className="block no-underline">
+              <MinimalCard className="relative p-2 no-underline shadow-sm transition-colors bg-card hover:bg-muted/50">
+                {/* Image Container with Bezel Effect */}
+                <div
+                  className={cn(
+                    "relative mb-6 aspect-[16/10] w-full overflow-hidden rounded-[20px]",
+                    "shadow-[0px_1px_1px_0px_rgba(0,0,0,0.05),0px_1px_1px_0px_rgba(255,252,240,0.5)_inset,0px_0px_0px_1px_hsla(0,0%,100%,0.1)_inset,0px_0px_1px_0px_rgba(28,27,26,0.5)]"
+                  )}
+                >
+                  {project.img ? (
                     <Image 
                       src={project.img} 
                       alt={project.title} 
                       fill 
                       className="object-cover transition-transform duration-500 hover:scale-105"
                     />
-                  </Link>
-                )}
-                <div className="p-6 flex flex-col h-full">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3 text-left">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-muted/50">
-                        {project.slug === 'spotify-mixtapekit' ? <Icons.spotify className="h-6 w-6 text-green-500" /> : <ShieldCheck className="h-6 w-6 text-blue-500" />}
-                      </div>
-                      <Link href={`/projects/${project.slug}`}>
-                        <MinimalCardTitle className="text-xl hover:text-primary transition-colors">
-                          {project.title}
-                        </MinimalCardTitle>
-                      </Link>
+                  ) : (
+                    <div className="absolute inset-0 bg-muted flex items-center justify-center">
+                      {project.slug === 'spotify-mixtapekit' ? <Icons.spotify className="h-12 w-12 text-green-500/20" /> : <ShieldCheck className="h-12 w-12 text-blue-500/20" />}
                     </div>
-                    <div className="flex gap-2">
-                      <Link
-                        href={project.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-                      >
-                        <Icons.gitHub className="size-4" />
-                        <span className="sr-only">GitHub</span>
-                      </Link>
-                      <Link
-                        href={project.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="p-2 rounded-full hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
-                      >
-                        <ExternalLink className="size-4" />
-                        <span className="sr-only">Visit</span>
-                      </Link>
-                    </div>
-                  </div>
-                  <Link href={`/projects/${project.slug}`} className="flex-grow text-left">
-                    <MinimalCardDescription className="text-muted-foreground mb-6 line-clamp-3 text-sm sm:text-base leading-relaxed">
-                      {project.description}
-                    </MinimalCardDescription>
-                  </Link>
-                  <div className="flex flex-wrap gap-2 mt-auto">
-                    {project.tags.map((tag) => (
-                      <Link
-                        key={tag}
-                        href={`/projects/tags/${encodeURIComponent(tag)}`}
-                        className="inline-flex items-center rounded-md bg-muted/50 px-2 py-1 text-xs font-medium text-muted-foreground ring-1 ring-inset ring-zinc-200/50 hover:bg-muted transition-colors"
-                      >
-                        #{tag}
-                      </Link>
-                    ))}
+                  )}
+
+                  {/* Inner Bezel Shadow */}
+                  <div className="absolute inset-0 rounded-[16px] pointer-events-none">
+                    <div
+                      className={cn(
+                        "absolute inset-0 rounded-[16px]",
+                        "shadow-[0px_0px_0px_1px_rgba(0,0,0,.07),0px_0px_0px_3px_#fff,0px_0px_0px_4px_rgba(0,0,0,.08)]",
+                        "dark:shadow-[0px_0px_0px_1px_rgba(0,0,0,.07),0px_0px_0px_3px_rgba(100,100,100,0.3),0px_0px_0px_4px_rgba(0,0,0,.08)]"
+                      )}
+                    />
                   </div>
                 </div>
+
+                <div className="px-2 pb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="flex h-6 w-6 items-center justify-center rounded bg-muted/50">
+                      {project.slug === 'spotify-mixtapekit' ? <Icons.spotify className="h-3.5 w-3.5 text-green-500" /> : <ShieldCheck className="h-3.5 w-3.5 text-blue-500" />}
+                    </div>
+                    <MinimalCardTitle className="text-base font-bold">
+                      {project.title}
+                    </MinimalCardTitle>
+                  </div>
+                  <MinimalCardDescription className="text-xs text-muted-foreground line-clamp-2">
+                    {project.description}
+                  </MinimalCardDescription>
+                </div>
               </MinimalCard>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
