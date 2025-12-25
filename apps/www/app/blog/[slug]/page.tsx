@@ -56,10 +56,10 @@ export default async function BlogPostPage({
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight text-foreground">
             {post.title}
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed font-medium mb-8">
+          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed mb-8">
             {post.description}
           </p>
-          <div className="flex items-center gap-4 mt-8 text-xs font-mono font-bold text-muted-foreground/60 uppercase tracking-widest border-b border-accent-teal/20 pb-8">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
             <time dateTime={post.date}>
               {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
@@ -69,18 +69,18 @@ export default async function BlogPostPage({
             </time>
             {post.author && (
               <>
-                <span className="text-accent-teal/30">/</span>
+                <span>·</span>
                 <span>{post.author}</span>
               </>
             )}
           </div>
           {post.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-8">
+            <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <Link
                   key={tag}
                   href={`/blog/tags/${encodeURIComponent(tag)}`}
-                  className="inline-block bg-white dark:bg-zinc-900 px-3 py-1 text-xs font-bold italic text-accent-teal/80 hover:text-accent-teal border border-accent-teal/10 hover:border-accent-teal/30 rounded-md transition-all"
+                  className="inline-block bg-white dark:bg-zinc-900 px-2.5 py-1 text-xs font-medium text-muted-foreground hover:text-accent-teal border border-accent-teal/5 hover:border-accent-teal/20 rounded-md transition-all shadow-sm"
                 >
                   #{tag}
                 </Link>
