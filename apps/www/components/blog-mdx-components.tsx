@@ -21,33 +21,12 @@ export function Pre({
   const preRef = useRef<HTMLPreElement>(null)
   const [code, setCode] = useState("")
   const [copied, setCopied] = useState(false)
-  const [hasOverflow, setHasOverflow] = useState(false)
 
   React.useEffect(() => {
     if (preRef.current) {
       setCode(preRef.current.innerText)
     }
   }, [children])
-
-  useLayoutEffect(() => {
-    const checkOverflow = () => {
-      if (preRef.current) {
-        const hasHorizontalOverflow =
-          preRef.current.scrollWidth > preRef.current.clientWidth
-        setHasOverflow(hasHorizontalOverflow)
-      }
-    }
-
-    checkOverflow()
-    const resizeObserver = new ResizeObserver(checkOverflow)
-    if (preRef.current) {
-      resizeObserver.observe(preRef.current)
-    }
-
-    return () => {
-      resizeObserver.disconnect()
-    }
-  }, [])
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code)
@@ -56,32 +35,31 @@ export function Pre({
   }
 
   return (
-    <div className="relative group my-6 not-prose">
+    <div className="relative group my-8 not-prose">
       <div
         className={cn(
-          "group relative overflow-hidden rounded-2xl border p-0.5",
-          "border-zinc-950/10 dark:border-white/10",
-          "bg-zinc-50 dark:bg-white/5",
-          "text-zinc-950 dark:text-zinc-50"
+          "relative overflow-hidden rounded-2xl border",
+          "border-zinc-300 dark:border-zinc-700",
+          "bg-[#fdfbf7]/80 dark:bg-zinc-900/80 backdrop-blur-sm shadow-sm",
+          className
         )}
       >
-        {/* Tab Bar Style Header */}
-        <div className="flex items-center relative pr-2.5 h-10 border-b border-zinc-950/5 dark:border-white/5 bg-zinc-100/50 dark:bg-white/5">
-          <div className="flex-1 min-w-0 text-[10px] leading-6 rounded-tl-xl gap-1 flex items-center px-4 font-mono uppercase tracking-widest text-zinc-500 font-bold">
+        {/* Header bar with language and copy button */}
+        <div className="flex items-center justify-between px-4 py-2 border-b border-zinc-300/50 dark:border-zinc-700/50 bg-[#f5f2e9]/50 dark:bg-zinc-800/50">
+          <div className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400 font-bold">
             {language || "code"}
           </div>
           
-          {/* Copy Button */}
           <motion.button
             onClick={handleCopy}
             whileTap={{ scale: 0.95 }}
             className={cn(
-              "flex items-center gap-1.5 px-2 py-1 text-[10px] font-medium rounded-lg",
+              "flex items-center gap-1.5 px-2 py-1 text-[10px] font-medium rounded-md",
               "text-zinc-500 dark:text-zinc-400",
-              "bg-white/80 dark:bg-zinc-950/80 backdrop-blur-sm",
+              "bg-white/50 dark:bg-zinc-950/50 backdrop-blur-sm",
               "border border-zinc-200/50 dark:border-zinc-800/50",
-              "hover:bg-zinc-200/50 dark:hover:bg-zinc-700/70",
-              "hover:text-zinc-950 dark:hover:text-zinc-50",
+              "hover:bg-white dark:hover:bg-zinc-800",
+              "hover:text-zinc-900 dark:hover:text-zinc-100",
               "transition-all duration-150"
             )}
             aria-label="Copy code"
@@ -94,7 +72,7 @@ export function Pre({
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0, opacity: 0 }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 flex items-center justify-center"
                   >
                     <Check className="size-full" />
                   </motion.div>
@@ -104,7 +82,7 @@ export function Pre({
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0, opacity: 0 }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 flex items-center justify-center"
                   >
                     <Copy className="size-full" />
                   </motion.div>
@@ -120,7 +98,6 @@ export function Pre({
           ref={preRef}
           className={cn(
             "p-4 text-sm leading-relaxed m-0 overflow-x-auto",
-            "bg-white dark:bg-zinc-950/50 rounded-b-xl",
             "scrollbar-thin scrollbar-thumb-rounded",
             "scrollbar-thumb-black/15 hover:scrollbar-thumb-black/20",
             "dark:scrollbar-thumb-white/20 dark:hover:scrollbar-thumb-white/25",
@@ -128,8 +105,7 @@ export function Pre({
             "[&::-webkit-scrollbar-thumb]:rounded-full",
             "[&::-webkit-scrollbar-thumb]:bg-black/15",
             "[&::-webkit-scrollbar-thumb]:dark:bg-white/20",
-            "[&::-webkit-scrollbar-track]:bg-transparent",
-            className
+            "[&::-webkit-scrollbar-track]:bg-transparent"
           )}
           {...props}
         >
