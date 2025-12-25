@@ -33,16 +33,17 @@ export function Pre({
 
   return (
     <div className="relative group my-8 not-prose">
-      {/* 
-        The outer container uses the 'Cult' theme styling. 
-        We use 'important' overrides (!bg-transparent) on the inner pre 
-        to strip away inline styles injected by rehype-pretty-code.
-      */}
+      {/* Inject CSS to override inline styles from shiki/rehype-pretty-code */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .custom-pre { background-color: transparent !important; }
+        .custom-pre code { background-color: transparent !important; }
+      `}} />
+      
       <div
         className={cn(
-          "relative overflow-hidden rounded-2xl border shadow-sm transition-all",
+          "relative overflow-hidden rounded-2xl border transition-all",
           "border-zinc-300 dark:border-zinc-800",
-          "bg-[#fdfbf7]/95 dark:bg-zinc-950/95 backdrop-blur-md"
+          "bg-[#fdfbf7]/95 dark:bg-zinc-950/95 backdrop-blur-md shadow-sm"
         )}
       >
         {/* Header bar */}
@@ -61,28 +62,23 @@ export function Pre({
             )}
           >
             {copied ? (
-              <>
+              <span className="flex items-center gap-1">
                 <Check className="size-3" />
                 <span>Copied</span>
-              </>
+              </span>
             ) : (
-              <>
+              <span className="flex items-center gap-1">
                 <Copy className="size-3" />
                 <span>Copy</span>
-              </>
+              </span>
             )}
           </button>
         </div>
 
-        {/* 
-          Force transparency and reset margins to ensure the 
-          rehype-pretty-code output doesn't break our theme.
-        */}
         <pre
           ref={preRef}
-          style={{ backgroundColor: 'transparent', color: 'inherit' }}
           className={cn(
-            "p-5 text-sm sm:text-base leading-relaxed m-0 overflow-x-auto !bg-transparent !text-inherit",
+            "custom-pre p-5 text-sm sm:text-base leading-relaxed m-0 overflow-x-auto !bg-transparent !text-inherit",
             "scrollbar-thin scrollbar-thumb-zinc-300 dark:scrollbar-thumb-zinc-700",
             className
           )}
@@ -99,7 +95,10 @@ export const components = {
   pre: Pre,
   CodeBlock: Pre,
   figure: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
-    <figure className={cn("m-0 p-0", className)} {...props} />
+    <figure 
+      className={cn("m-0 p-0 !bg-transparent !border-0", className)} 
+      {...props} 
+    />
   ),
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1 className={cn("mt-2 scroll-m-20 text-4xl font-bold tracking-tight", className)} {...props} />

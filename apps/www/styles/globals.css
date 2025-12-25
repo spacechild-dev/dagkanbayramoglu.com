@@ -755,7 +755,7 @@
     }
   }
 
-  [data-rehype-pretty-code-figure] {
+  /* [data-rehype-pretty-code-figure] {
     background-color: var(--color-code);
     color: var(--color-code-foreground);
     border-radius: var(--radius-lg);
@@ -771,7 +771,7 @@
     &:has([data-rehype-pretty-code-title]) [data-slot="copy-button"] {
       top: calc(var(--spacing) * 1.5) !important;
     }
-  }
+  } */
 
   [data-rehype-pretty-code-title] {
     border-bottom: color-mix(in oklab, var(--border) 30%, transparent);
