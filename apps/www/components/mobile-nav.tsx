@@ -63,94 +63,83 @@ export function MobileNav() {
           onOpenChange={setOpen}
         >
           <Icons.cultLogoBasic className="size-6 fill-black  " />
-          <span className=" text-lg font-bold sm:inline-block">cult ui</span>
+          <span className=" text-lg font-bold sm:inline-block">
+            {siteConfig.name}
+          </span>
           <span className="sr-only">{siteConfig.name}</span>
         </MobileLink>
 
         <div className="flex flex-col space-y-3 bg-background pt-4">
-          <a
-            href="https://pro.cult-ui.com/blocks"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "text-base font-semibold transition-colors hover:text-foreground/80"
-            )}
-          >
-            Blocks <span className="text-xs text-cyan-500">(8 new)</span>
-          </a>
-          <a
-            href="https://pro.cult-ui.com/sections"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              "text-base font-semibold transition-colors hover:text-foreground/80"
-            )}
-          >
-            Sections <span className="text-xs text-cyan-500">(10 new)</span>
-          </a>
-          <a
-            href="https://newcult.co"
-            className={cn(
-              "text-base font-semibold transition-colors hover:text-foreground/80"
-            )}
-          >
-            Templates <span className="text-xs text-cyan-500">(1 new)</span>
-          </a>
+          {docsConfig.mainNav.map(
+            (item) =>
+              item.href && (
+                <MobileLink
+                  key={item.href}
+                  href={item.href}
+                  onOpenChange={setOpen}
+                  className="text-base font-semibold transition-colors hover:text-foreground/80"
+                >
+                  {item.title}
+                </MobileLink>
+              )
+          )}
         </div>
 
-        <ScrollArea className="my-4 mr-2 h-[calc(100vh-12rem)] rounded-sm px-3 pb-2 shadow-inner ring-1 ring-border/60">
-          <div className="flex flex-col space-y-2">
-            {docsConfig.sidebarNav.map((item, index) => (
-              <div key={index} className="flex flex-col space-y-3 pt-6">
-                <h4 className="font-medium">{item.title}</h4>
-                {item?.items?.length &&
-                  item.items.map((subItem) => (
-                    <React.Fragment key={subItem.href || subItem.title}>
-                      {subItem.href ? (
-                        <MobileLink
-                          href={subItem.href}
-                          onOpenChange={setOpen}
-                          className="text-muted-foreground"
-                        >
-                          {subItem.title}
-                          {subItem.label && (
-                            <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
-                              {subItem.label}
-                            </span>
-                          )}
-                        </MobileLink>
-                      ) : (
-                        <>
-                          <span className="text-sm font-medium">
+        {docsConfig.sidebarNav.length > 0 && (
+          <ScrollArea className="my-4 mr-2 h-[calc(100vh-12rem)] rounded-sm px-3 pb-2 shadow-inner ring-1 ring-border/60">
+            <div className="flex flex-col space-y-2">
+              {docsConfig.sidebarNav.map((item, index) => (
+                <div key={index} className="flex flex-col space-y-3 pt-6">
+                  <h4 className="font-medium">{item.title}</h4>
+                  {item?.items?.length &&
+                    item.items.map((subItem) => (
+                      <React.Fragment key={subItem.href || subItem.title}>
+                        {subItem.href ? (
+                          <MobileLink
+                            href={subItem.href}
+                            onOpenChange={setOpen}
+                            className="text-muted-foreground"
+                          >
                             {subItem.title}
-                          </span>
-                          {subItem.items?.length && (
-                            <div className="ml-4 flex flex-col space-y-2">
-                              {subItem.items.map((nestedItem) => (
-                                <MobileLink
-                                  key={nestedItem.href ?? ""}
-                                  href={nestedItem.href ?? "#"}
-                                  onOpenChange={setOpen}
-                                  className="text-sm text-muted-foreground"
-                                >
-                                  {nestedItem.title}
-                                  {nestedItem.label && (
-                                    <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
-                                      {nestedItem.label}
-                                    </span>
-                                  )}
-                                </MobileLink>
-                              ))}
-                            </div>
-                          )}
-                        </>
-                      )}
-                    </React.Fragment>
-                  ))}
-              </div>
-            ))}
-          </div>
-        </ScrollArea>
+                            {subItem.label && (
+                              <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+                                {subItem.label}
+                              </span>
+                            )}
+                          </MobileLink>
+                        ) : (
+                          <>
+                            <span className="text-sm font-medium">
+                              {subItem.title}
+                            </span>
+                            {subItem.items?.length && (
+                              <div className="ml-4 flex flex-col space-y-2">
+                                {subItem.items.map((nestedItem) => (
+                                  <MobileLink
+                                    key={nestedItem.href ?? ""}
+                                    href={nestedItem.href ?? "#"}
+                                    onOpenChange={setOpen}
+                                    className="text-sm text-muted-foreground"
+                                  >
+                                    {nestedItem.title}
+                                    {nestedItem.label && (
+                                      <span className="ml-2 rounded-md bg-[#adfa1d] px-1.5 py-0.5 text-xs leading-none text-[#000000] no-underline group-hover:no-underline">
+                                        {nestedItem.label}
+                                      </span>
+                                    )}
+                                  </MobileLink>
+                                ))}
+                              </div>
+                            )}
+                          </>
+                        )}
+                      </React.Fragment>
+                    ))}
+                </div>
+              ))}
+            </div>
+          </ScrollArea>
+        )}
       </SheetContent>
     </Sheet>
   )
