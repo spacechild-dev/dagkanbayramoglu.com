@@ -8,12 +8,12 @@ export const metadata = {
 
 export default function ResumePage() {
   return (
-    <div className="container max-w-5xl py-12">
+    <div className="container max-w-3xl py-12">
       <div className="flex flex-col gap-12">
         {/* Header */}
         <header className="flex flex-col gap-4">
           <h1 className="text-4xl font-bold tracking-tight">Career</h1>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-xl text-muted-foreground leading-tight">
             Digital Performance and Media Account Manager
           </p>
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
@@ -44,7 +44,7 @@ export default function ResumePage() {
         {/* Professional Summary */}
         <section>
           <h2 className="text-2xl font-bold mb-4 border-b pb-2">Professional Summary</h2>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
             Highly accomplished and results-driven Digital Marketing professional with extensive experience in performance marketing, team leadership, and strategic campaign management. Proven ability to drive ROI, optimize media budgets, and coordinate cross-functional teams to achieve operational alignment and business growth. Expertise spans multi-platform campaign execution, analytics, automation, and CRM insights, with a strong focus on mentorship, development, and process improvement.
           </p>
         </section>
@@ -62,8 +62,8 @@ export default function ResumePage() {
               </div>
               
               <div className="flex flex-col gap-2 ml-1 border-l-2 pl-6 pb-2">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                  <h4 className="text-lg font-semibold">Digital Performance and Media Account Manager</h4>
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 text-sm sm:text-base">
+                  <h4 className="text-lg font-semibold leading-snug">Digital Performance and Media Account Manager</h4>
                   <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Oct 2025 – Present</span>
                 </div>
                 <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
@@ -84,8 +84,8 @@ export default function ResumePage() {
               <div className="flex flex-col gap-8 ml-1 border-l-2 pl-6">
                 {/* Role 1 */}
                 <div className="flex flex-col gap-2">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                    <h4 className="text-lg font-semibold">Performance Marketing Team Lead</h4>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 text-sm sm:text-base">
+                    <h4 className="text-lg font-semibold leading-snug">Performance Marketing Team Lead</h4>
                     <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Nov 2024 – Oct 2025</span>
                   </div>
                   <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
@@ -99,8 +99,8 @@ export default function ResumePage() {
 
                 {/* Role 2 */}
                 <div className="flex flex-col gap-2">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                    <h4 className="text-lg font-semibold">Sr. Performance Marketing Executive</h4>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 text-sm sm:text-base">
+                    <h4 className="text-lg font-semibold leading-snug">Sr. Performance Marketing Executive</h4>
                     <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Feb 2024 – Oct 2024</span>
                   </div>
                   <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
@@ -122,8 +122,8 @@ export default function ResumePage() {
               <div className="flex flex-col gap-8 ml-1 border-l-2 pl-6">
                 {/* Role 1 */}
                 <div className="flex flex-col gap-2">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                    <h4 className="text-lg font-semibold">Digital Marketing Team Lead</h4>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 text-sm sm:text-base">
+                    <h4 className="text-lg font-semibold leading-snug">Digital Marketing Team Lead</h4>
                     <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Apr 2023 – Feb 2024</span>
                   </div>
                   <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
@@ -135,8 +135,8 @@ export default function ResumePage() {
 
                 {/* Role 2 */}
                 <div className="flex flex-col gap-2">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
-                    <h4 className="text-lg font-semibold">Digital Marketing Specialist</h4>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 text-sm sm:text-base">
+                    <h4 className="text-lg font-semibold leading-snug">Digital Marketing Specialist</h4>
                     <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Apr 2023 – Apr 2024</span>
                   </div>
                   <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1.5 mt-2 text-sm">
@@ -148,7 +148,7 @@ export default function ResumePage() {
 
                 {/* Role 3 */}
                 <div className="flex flex-col gap-2">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 text-sm sm:text-base">
                     <h4 className="text-lg font-semibold italic">Digital Marketing Intern</h4>
                     <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">Mar 2022</span>
                   </div>
@@ -166,13 +166,13 @@ export default function ResumePage() {
         <section>
           <h2 className="text-2xl font-bold mb-6 border-b pb-2">Certifications</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1 text-sm font-medium">
+            <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1 text-xs sm:text-sm font-medium">
               <li>Criteo Programmatic Campaign Manager</li>
               <li>Criteo Programmatic Advertising Professional</li>
               <li>Meta Certified Digital Marketing Associate</li>
               <li>Google Ads Search / Display / Video</li>
             </ul>
-            <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1 text-sm font-medium">
+            <ul className="list-disc list-outside ml-4 text-muted-foreground space-y-1 text-xs sm:text-sm font-medium">
               <li>Google Ads Shopping / App</li>
               <li>Apple Search Ads</li>
             </ul>
@@ -182,7 +182,7 @@ export default function ResumePage() {
         {/* Skills */}
         <section>
           <h2 className="text-2xl font-bold mb-6 border-b pb-2">Skills & Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8">
             <div>
               <h3 className="font-semibold mb-3">Performance Marketing</h3>
               <div className="flex flex-wrap gap-2">

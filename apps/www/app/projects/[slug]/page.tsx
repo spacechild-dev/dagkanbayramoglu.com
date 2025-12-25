@@ -54,23 +54,23 @@ export default async function ProjectPage({
   const btnClass = "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-8 gap-1.5 px-3 rounded-xl transition-all hover:bg-muted/50"
 
   return (
-    <div className="container max-w-5xl py-12 lg:py-20">
+    <div className="container max-w-3xl py-12">
       <Link
         href="/projects"
-        className="text-sm text-muted-foreground hover:text-foreground mb-12 inline-block transition-colors"
+        className="text-sm text-muted-foreground hover:text-foreground mb-8 inline-block transition-colors"
       >
         ← Back to Projects
       </Link>
 
-      <div className="flex flex-col gap-24">
-        {/* Top Section: Description & GIF/Image */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-5 flex flex-col gap-8 order-2 lg:order-1 text-center lg:text-left">
+      <div className="flex flex-col gap-16">
+        {/* Top Section: Description & Image */}
+        <section className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6">
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tighter leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
                 {project.title}
               </h1>
-              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+              <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <Link
                     key={tag}
@@ -85,7 +85,7 @@ export default async function ProjectPage({
             <p className="text-lg text-muted-foreground leading-relaxed">
               {project.description}
             </p>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+            <div className="flex flex-wrap gap-3">
               <Link
                 href={project.href}
                 target="_blank"
@@ -106,7 +106,7 @@ export default async function ProjectPage({
               </Link>
             </div>
           </div>
-          <div className="lg:col-span-7 relative aspect-video w-full overflow-hidden rounded-[2rem] border bg-muted shadow-2xl order-1 lg:order-2 group">
+          <div className="relative aspect-video w-full overflow-hidden rounded-[2rem] border bg-muted shadow-2xl group">
             {project.img ? (
               <Image 
                 src={project.img} 
@@ -126,25 +126,26 @@ export default async function ProjectPage({
         {/* Middle Section: Key Features using MinimalCard */}
         {project.keyFeatures && project.keyFeatures.length > 0 && (
           <section className="space-y-12">
-            <div className="space-y-4 text-center lg:text-left">
-              <h2 className="text-3xl font-bold tracking-tight">Key Features</h2>
-              <div className="h-1 w-20 bg-primary rounded-full mx-auto lg:mx-0" />
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Key Features</h2>
+              <div className="h-1 w-20 bg-primary rounded-full" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-6">
               {project.keyFeatures.map((feature, index) => (
                 <MinimalCard 
                   key={index}
-                  className="bg-card/30 backdrop-blur-sm border-zinc-200/50 shadow-sm transition-all hover:shadow-md h-full p-6"
+                  className="bg-card/30 backdrop-blur-sm border-zinc-200/50 shadow-sm transition-all hover:shadow-md p-6"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary mb-4">
-                    <CheckCircle2 className="size-5" />
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary shrink-0">
+                      <CheckCircle2 className="size-5" />
+                    </div>
+                    <div>
+                      <MinimalCardTitle className="text-lg leading-tight">
+                        {feature}
+                      </MinimalCardTitle>
+                    </div>
                   </div>
-                  <MinimalCardTitle className="text-lg mb-2">
-                    {feature}
-                  </MinimalCardTitle>
-                  <MinimalCardDescription className="text-sm text-muted-foreground">
-                    Core functionality designed for optimal performance and user experience.
-                  </MinimalCardDescription>
                 </MinimalCard>
               ))}
             </div>
@@ -154,7 +155,7 @@ export default async function ProjectPage({
         {/* Content Section (MDX) - Technical Details */}
         <section className="w-full">
           <div className="space-y-4 mb-12">
-            <h2 className="text-3xl font-bold tracking-tight">Technical Details</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Technical Details</h2>
             <div className="h-1 w-20 bg-primary rounded-full" />
           </div>
           <div className="prose prose-neutral dark:prose-invert max-w-none prose-headings:tracking-tight prose-pre:p-0">
@@ -180,11 +181,11 @@ export default async function ProjectPage({
         {/* Bottom Section: App Screenshots */}
         {project.screenshots && project.screenshots.length > 0 && (
           <section className="space-y-12">
-            <div className="space-y-4 text-center lg:text-left">
-              <h2 className="text-3xl font-bold tracking-tight">App Screenshots</h2>
-              <div className="h-1 w-20 bg-primary rounded-full mx-auto lg:mx-0" />
+            <div className="space-y-4">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">App Screenshots</h2>
+              <div className="h-1 w-20 bg-primary rounded-full" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 gap-8">
               {project.screenshots.map((screenshot, index) => (
                 <div 
                   key={index}

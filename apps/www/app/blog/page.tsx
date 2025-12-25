@@ -3,18 +3,18 @@ import { getAllBlogPosts } from "@/lib/blog"
 
 export const metadata = {
   title: "Blog",
-  description: "Thoughts, projects, and learnings",
+  description: "Sharing my thoughts, projects, and what I've learned",
 }
 
 export default function BlogPage() {
   const posts = getAllBlogPosts()
 
   return (
-    <div className="container max-w-5xl py-12">
+    <div className="container max-w-3xl py-12">
       <div className="flex flex-col gap-8">
         <div>
           <h1 className="text-4xl font-bold tracking-tight">Blog</h1>
-          <p className="text-muted-foreground mt-2">
+          <p className="text-muted-foreground mt-2 text-base md:text-lg">
             Sharing my thoughts, projects, and what I've learned
           </p>
         </div>
@@ -33,7 +33,7 @@ export default function BlogPage() {
                     {post.title}
                   </h2>
                 </Link>
-                <p className="text-muted-foreground">{post.description}</p>
+                <p className="text-muted-foreground text-sm sm:text-base leading-relaxed line-clamp-3">{post.description}</p>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <time dateTime={post.date}>
                     {new Date(post.date).toLocaleDateString("en-US", {

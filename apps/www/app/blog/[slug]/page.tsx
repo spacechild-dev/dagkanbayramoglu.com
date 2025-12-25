@@ -43,17 +43,17 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div className="container max-w-5xl py-12">
+    <div className="container max-w-3xl py-12">
       <Link
         href="/blog"
-        className="text-sm text-muted-foreground hover:text-foreground mb-8 inline-block"
+        className="text-sm text-muted-foreground hover:text-foreground mb-8 inline-block transition-colors"
       >
         ← Back to Blog
       </Link>
 
       <article className="prose prose-neutral dark:prose-invert max-w-none">
         <header className="mb-8 not-prose">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+          <h1 className="text-4xl font-bold tracking-tight mb-4 leading-tight">
             {post.title}
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">{post.description}</p>
@@ -82,22 +82,24 @@ export default async function BlogPostPage({
           )}
         </header>
 
-        <MDXRemote 
-          source={post.content} 
-          components={components}
-          options={{
-            mdxOptions: {
-              rehypePlugins: [
-                [
-                  rehypePrettyCode,
-                  {
-                    theme: "github-light-default",
-                  },
+        <div className="mdx-content">
+          <MDXRemote 
+            source={post.content} 
+            components={components}
+            options={{
+              mdxOptions: {
+                rehypePlugins: [
+                  [
+                    rehypePrettyCode,
+                    {
+                      theme: "github-light-default",
+                    },
+                  ],
                 ],
-              ],
-            },
-          }}
-        />
+              },
+            }}
+          />
+        </div>
       </article>
     </div>
   )

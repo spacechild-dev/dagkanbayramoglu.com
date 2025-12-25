@@ -5,7 +5,6 @@ import { useLayoutEffect, useRef, useState } from "react"
 import { Check, Copy } from "lucide-react"
 import { motion, AnimatePresence } from "motion/react"
 import { cn } from "@/lib/utils"
-import { CodeBlock } from "@/registry/default/ui/code-block"
 
 interface PreProps extends React.HTMLAttributes<HTMLPreElement> {
   "data-language"?: string
@@ -39,9 +38,10 @@ export function Pre({
     <div className="relative group my-8 not-prose">
       <div
         className={cn(
-          "group relative overflow-hidden rounded-2xl border",
+          "relative overflow-hidden rounded-2xl border shadow-sm",
           "border-zinc-300 dark:border-zinc-800",
-          "bg-[#fdfbf7]/80 dark:bg-zinc-950/80 backdrop-blur-sm shadow-sm"
+          "bg-[#fdfbf7]/90 dark:bg-zinc-950/90 backdrop-blur-sm",
+          className
         )}
       >
         {/* Header bar */}
@@ -72,7 +72,7 @@ export function Pre({
           </button>
         </div>
 
-        {/* Code area */}
+        {/* Code area - Force transparency to let the container background show through */}
         <pre
           ref={preRef}
           className={cn(
@@ -91,7 +91,10 @@ export function Pre({
 
 export const components = {
   pre: Pre,
-  CodeBlock: CodeBlock,
+  // Handle rehype-pretty-code figures
+  figure: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
+    <figure className={cn("m-0", className)} {...props} />
+  ),
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       className={cn(
