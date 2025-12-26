@@ -713,18 +713,20 @@
   }
 
   .nav-link {
-    color: var(--color-muted-foreground);
-    @apply px-4 py-2 text-xs font-black uppercase tracking-widest rounded-xl transition-all;
+    color: var(--color-neutral-strong);
+    @apply px-4 py-2 text-xs font-bold uppercase tracking-widest rounded-xl transition-all;
+    opacity: 0.7;
   }
 
   .nav-link:hover {
-    color: var(--color-foreground);
-    background-color: oklch(1 0 0 / 0.05);
+    opacity: 1;
+    background-color: var(--neutral-alpha-weak);
   }
 
   .nav-link.active {
-    color: oklch(0.6 0.2 150); /* Emerald-ish for primary highlight */
-    background-color: oklch(0.6 0.2 150 / 0.1);
+    opacity: 1;
+    color: var(--color-brand-strong);
+    background-color: var(--brand-alpha-weak);
   }
 }
 
