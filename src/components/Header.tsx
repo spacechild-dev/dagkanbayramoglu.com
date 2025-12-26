@@ -203,15 +203,15 @@ export const Header = () => {
             >
                 <Flex direction="column" gap="16" padding="16">
                     <Input 
+                        id="contact-email"
                         label="Email" 
                         placeholder="your@email.com" 
                         type="email"
-                        fillWidth
                     />
                     <Textarea 
+                        id="contact-message"
                         label="Message" 
                         placeholder="What's on your mind?" 
-                        fillWidth
                     />
                     <Button variant="primary" fillWidth onClick={() => setIsContactOpen(false)}>
                         Send Message
