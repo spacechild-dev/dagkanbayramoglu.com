@@ -2,9 +2,8 @@
 
 import { useLayoutEffect, useMemo, useRef, useState } from "react"
 import { Check, Copy } from "lucide-react"
-import { AnimatePresence, motion } from "motion/react"
-
-import { cn } from "@/lib/utils"
+import { AnimatePresence, motion } from "framer-motion"
+import classNames from "classnames"
 
 interface CodeTab {
   label: string
@@ -89,7 +88,7 @@ export function CodeBlock({
 
   return (
     <div
-      className={cn(
+      className={classNames(
         "group relative overflow-hidden rounded-2xl border p-0.5",
         "border-zinc-950/10 dark:border-white/10",
         "bg-zinc-50 dark:bg-white/5",
@@ -103,7 +102,7 @@ export function CodeBlock({
         <div className="flex items-center relative pr-2.5">
           <div
             role="tablist"
-            className={cn(
+            className={classNames(
               "flex-1 min-w-0 text-xs leading-6 rounded-tl-xl gap-1 flex",
               "overflow-x-auto overflow-y-hidden",
               "scrollbar-thin scrollbar-thumb-rounded",
@@ -119,7 +118,7 @@ export function CodeBlock({
                   role="tab"
                   aria-selected={activeTab === index}
                   onClick={() => handleTabChange(index)}
-                  className={cn(
+                  className={classNames(
                     "flex items-center relative gap-1.5 my-1 mb-1.5 outline-0",
                     "whitespace-nowrap font-medium transition-colors duration-150",
                     "px-1.5 rounded-lg",
@@ -155,7 +154,7 @@ export function CodeBlock({
         <motion.button
           onClick={handleCopy}
           whileTap={{ scale: 0.95 }}
-          className={cn(
+          className={classNames(
             "absolute top-2 right-2 z-10",
             "flex items-center gap-1.5 px-2 py-1.5 text-xs font-medium rounded-lg",
             "text-zinc-500 dark:text-zinc-400",
@@ -199,7 +198,7 @@ export function CodeBlock({
         </motion.button>
         <pre
           ref={preRef}
-          className={cn(
+          className={classNames(
             "p-4 text-sm leading-relaxed m-0",
             "bg-white dark:bg-zinc-950/50",
             codeContent.length > 1 ? "rounded-b-2xl" : "rounded-2xl",

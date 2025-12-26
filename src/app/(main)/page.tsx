@@ -13,6 +13,7 @@ import {
 import { social } from "@/resources/once-ui.config";
 import { FaGithub, FaLinkedin, FaSpotify, FaEnvelope } from "react-icons/fa";
 import { SiLastdotfm } from "react-icons/si";
+import { NowPlaying } from "@/components/NowPlaying";
 
 export default function Home() {
   return (
@@ -45,8 +46,10 @@ export default function Home() {
         >
           I’m Dağkan (sounds like “DAH-kahn”). I don’t really consider myself a developer, but I love exploring and experimenting with different topics—especially anything related to data-driven performance marketing, analytics, and martech.
         </Text>
+
+        <NowPlaying />
         
-        <Flex gap="12" wrap horizontal="center">
+        <Flex gap="12" wrap horizontal="center" marginTop="32">
           <Button href={social.github} variant="secondary" size="s">
             <Flex gap="8" vertical="center"><FaGithub /> GitHub</Flex>
           </Button>

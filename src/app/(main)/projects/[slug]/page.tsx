@@ -21,7 +21,7 @@ export default function ProjectDetailPage() {
 
   return (
     <Column fillWidth horizontal="center" paddingY="128" paddingX="l" style={{ minHeight: "100vh" }}>
-      <Column maxWidth="m" fillWidth gap="64">
+      <Column maxWidth="s" fillWidth gap="64">
         <Row gap="48" vertical="center" wrap>
             <Column flex={1} gap="24" style={{ minWidth: '300px' }}>
                 <Column gap="12">

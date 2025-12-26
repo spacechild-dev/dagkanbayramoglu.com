@@ -32,7 +32,7 @@ export default function ProjectsPage() {
 
   return (
     <Column fillWidth horizontal="center" paddingY="128" paddingX="l" style={{ minHeight: "100vh" }}>
-      <Column maxWidth="m" fillWidth gap="l">
+      <Column maxWidth="s" fillWidth gap="l">
         <Column gap="12" marginBottom="32">
           <Heading variant="display-strong-s">Projects</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak">

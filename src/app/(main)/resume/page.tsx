@@ -14,7 +14,7 @@ import {
 export default function ResumePage() {
   return (
     <Column fillWidth horizontal="center" paddingY="128" paddingX="l" style={{ minHeight: "100vh" }}>
-      <Column maxWidth="m" fillWidth gap="48">
+      <Column maxWidth="s" fillWidth gap="48">
         {/* Header */}
         <Column gap="16">
           <Heading variant="display-strong-s">Career</Heading>
