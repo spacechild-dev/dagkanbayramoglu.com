@@ -23,46 +23,38 @@ export const SiteHeader = () => {
         <Flex
             as="header"
             fillWidth
-            paddingTop="24"
+            paddingTop="16"
             paddingX="24"
             justifyContent="center"
             style={{
                 position: 'fixed',
                 top: 0,
                 zIndex: 100,
+                pointerEvents: 'none'
             }}
         >
             <Flex 
-                maxWidth="m" 
                 fillWidth 
                 justifyContent="space-between" 
                 vertical="center"
-                paddingX="20"
-                radius="2xl"
+                paddingX="12"
+                radius="full"
                 style={{
                     background: 'var(--neutral-background-medium)',
                     backdropFilter: 'blur(16px)',
-                    height: '64px',
+                    height: '48px',
+                    width: 'fit-content',
+                    minWidth: '320px',
                     border: '1px solid var(--neutral-alpha-weak)',
-                    boxShadow: 'var(--shadow-elevation-dark-two)'
+                    boxShadow: 'var(--shadow-elevation-dark-two)',
+                    pointerEvents: 'auto'
                 }}
             >
-                <Row vertical="center" gap="32">
-                    <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-                        <Flex padding="8" radius="m" background="brand-alpha-weak" border="brand-alpha-weak">
-                            <Code className="size-5 text-brand-strong" />
+                <Row vertical="center" gap="8">
+                    <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+                        <Flex padding="8" radius="full" background="brand-alpha-weak">
+                            <Code className="size-4 text-brand-strong" />
                         </Flex>
-                        <Text 
-                            variant="label-strong-m" 
-                            onBackground="neutral-strong"
-                            style={{ 
-                                letterSpacing: '-0.02em', 
-                                fontWeight: 900,
-                                textTransform: 'uppercase' 
-                            }}
-                        >
-                            Dağkan
-                        </Text>
                     </Link>
 
                     <Row gap="4" hide="s">
@@ -74,6 +66,10 @@ export const SiteHeader = () => {
                                     "nav-link no-underline",
                                     isActive(item.href!) ? "active" : ""
                                 )}
+                                style={{
+                                    padding: '6px 12px',
+                                    fontSize: '10px'
+                                }}
                             >
                                 {item.title}
                             </Link>
@@ -81,46 +77,44 @@ export const SiteHeader = () => {
                     </Row>
                 </Row>
 
-                <Row vertical="center" gap="12">
-                    <div className="hidden sm:block">
-                        <a 
-                            href={siteConfig.links.buyMeACoffee} 
-                            target="_blank" 
-                            rel="noreferrer"
-                            style={{
-                                background: '#FFDD00',
-                                color: 'black',
-                                padding: '8px 16px',
-                                borderRadius: '12px',
-                                fontSize: '10px',
-                                fontWeight: 900,
-                                textTransform: 'uppercase',
-                                fontStyle: 'italic',
-                                letterSpacing: '-0.02em',
-                                textDecoration: 'none',
-                                boxShadow: '0 4px 14px 0 rgba(255, 221, 0, 0.39)',
-                                transition: 'all 0.2s ease'
-                            }}
-                            className="hover:scale-105 active:scale-95"
-                        >
-                            <Row vertical="center" gap="8">
-                                <Icons.coffee className="size-3" />
-                                <span>Support</span>
-                            </Row>
-                        </a>
-                    </div>
+                <Row vertical="center" gap="8">
+                    <a 
+                        href={siteConfig.links.buyMeACoffee} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        style={{
+                            background: '#FFDD00',
+                            color: 'black',
+                            padding: '6px 12px',
+                            borderRadius: '9999px',
+                            fontSize: '9px',
+                            fontWeight: 900,
+                            textTransform: 'uppercase',
+                            fontStyle: 'italic',
+                            letterSpacing: '0.02em',
+                            textDecoration: 'none',
+                            boxShadow: '0 2px 8px 0 rgba(255, 221, 0, 0.2)',
+                            transition: 'all 0.2s ease'
+                        }}
+                        className="hover:scale-105 active:scale-95"
+                    >
+                        <Row vertical="center" gap="4">
+                            <Icons.coffee className="size-3" />
+                            <span className="hidden sm:inline">Support</span>
+                        </Row>
+                    </a>
                     
                     <button 
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="md:hidden w-10 h-10 flex items-center justify-center text-foreground rounded-xl hover:bg-accent transition-colors border-none bg-transparent cursor-pointer"
+                        className="md:hidden w-8 h-8 flex items-center justify-center text-foreground rounded-full hover:bg-accent transition-colors border-none bg-transparent cursor-pointer"
                     >
-                        {isMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+                        {isMenuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
                     </button>
                 </Row>
 
                 {/* Mobile Dropdown */}
                 {isMenuOpen && (
-                    <div className="absolute top-[calc(100%+12px)] left-0 right-0 bg-background/95 backdrop-blur-xl border border-border/50 rounded-2xl shadow-2xl p-4 flex flex-col gap-2 md:hidden">
+                    <div className="absolute top-[calc(100%+12px)] left-1/2 -translate-x-1/2 w-[280px] bg-background/95 backdrop-blur-xl border border-border/50 rounded-2xl shadow-2xl p-4 flex flex-col gap-2 md:hidden">
                         {docsConfig.mainNav.map((item) => (
                             <Link 
                                 key={item.href} 
@@ -134,26 +128,6 @@ export const SiteHeader = () => {
                                 {item.title}
                             </Link>
                         ))}
-                        <a 
-                            href={siteConfig.links.buyMeACoffee}
-                            target="_blank"
-                            rel="noreferrer"
-                            style={{
-                                background: '#FFDD00',
-                                color: 'black',
-                                padding: '12px',
-                                borderRadius: '12px',
-                                fontSize: '12px',
-                                fontWeight: 900,
-                                textTransform: 'uppercase',
-                                fontStyle: 'italic',
-                                textAlign: 'center',
-                                marginTop: '8px',
-                                textDecoration: 'none'
-                            }}
-                        >
-                            Buy me a coffee
-                        </a>
                     </div>
                 )}
             </Flex>
