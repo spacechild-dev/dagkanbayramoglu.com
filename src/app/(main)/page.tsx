@@ -6,16 +6,16 @@ import {
   Text,
   Button,
   Column,
-  Badge,
   Flex,
-  LetterFx,
+  Row,
+  Line,
 } from "@once-ui-system/core";
 import { social } from "@/resources/once-ui.config";
-import { FaGithub, FaLinkedin, FaSpotify, FaEnvelope } from "react-icons/fa";
-import { SiLastdotfm } from "react-icons/si";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { NowPlaying } from "@/components/NowPlaying";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { HiOutlineClock, HiOutlineCalendarDays } from "react-icons/hi2";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -23,16 +23,16 @@ export default function Home() {
   const posts = [
     {
       title: language === "tr" ? "UTM & ClickID Takibi: Parametreleri Tarayıcıda Saklama Rehberi" : "UTM & ClickID Tracking: A Guide to Storing Parameters in the Browser",
-      description: language === "tr" ? "UTM parametrelerini ve Click ID'leri localStorage/sessionStorage üzerinde saklayarak dijital pazarlama analizlerinizi nasıl iyileştirebileceğinizi öğrenin." : "Learn how to capture and store UTM parameters and Click IDs in local and session storage to maintain tracking data across user sessions.",
-      date: "2024-07-05",
+      description: language === "tr" ? "Dijital pazarlama ve performans analizinde, UTM parametreleri ve tıklama id'leri (Click ID) gibi izleme parametreleri web sitesi ziyaretçilerini daha iyi anlamak için kritik bir rol oynuyor. Bu yazıda ziyaretçilerin ilk ziyaretinde adres çubuğunda görünen parametreleri nasıl saklayabileceğimize ve sonrasında kullanabileceğimize değineceğim. Script'in tamamını makale sonunda paylaşacağım fakat önerim, yapay zekadan da destek alıp kendi kodunuzu yazdırmanız. Ufak tefek detaylar gözden kaçabilir fakat bu şekilde mantığını kavramanız da kolaylaşır." : "In digital marketing and performance analysis, tracking parameters like UTM parameters and Click IDs play a critical role in better understanding website visitors. In this article, I will discuss how we can store parameters visible in the address bar during a visitor's first visit and use them later.",
+      date: language === "tr" ? "Temmuz 5, 2024" : "July 5, 2024",
       slug: "utm-parameters-and-tracking",
-      tags: ["marketing", "analytics", "tracking"]
+      readingTime: language === "tr" ? "6 dakika" : "6 minutes"
     }
   ];
 
   return (
     <Column fillWidth horizontal="center">
-      {/* Hero Section - 80% Height */}
+      {/* Hero Section - 80% Height Centered */}
       <Column 
         fillWidth 
         horizontal="center" 
@@ -40,67 +40,22 @@ export default function Home() {
         paddingX="l" 
         style={{ minHeight: "80vh" }}
       >
-        <Column maxWidth="s" horizontal="center" gap="l" align="center">
-          <Badge
-            textVariant="code-default-s"
-            border="neutral-alpha-medium"
-            onBackground="neutral-medium"
-            vertical="center"
-            gap="16"
-          >
-            <Flex vertical="center" gap="8">
-              <FaGithub size={14} />
-              <Text marginX="4">
-                <LetterFx trigger="instant">{t("home.badge")}</LetterFx>
-              </Text>
-            </Flex>
-          </Badge>
-
-          <Column gap="24" horizontal="center" marginTop="24">
+        <Column maxWidth="s" horizontal="center" gap="48" align="center">
+          <Column gap="24" horizontal="center">
               <Text
                   variant="body-default-xl"
                   onBackground="neutral-weak"
                   wrap="balance"
                   align="center"
+                  style={{ fontSize: '1.5rem', lineHeight: '1.6' }}
               >
                   {t("home.bio1")}
               </Text>
-              <Text
-                  variant="body-default-l"
-                  onBackground="neutral-weak"
-                  wrap="balance"
-                  align="center"
-              >
-                  {t("home.bio2")}
-              </Text>
           </Column>
 
-          {/* Last.fm Widgets Comparison */}
-          <Column gap="12" fillWidth marginTop="32">
-            <Text variant="label-default-xs" onBackground="neutral-weak" align="center">Last.fm Modül Alternatifleri (Öneri: Orta/Medium)</Text>
-            
-            <Flex direction="column" gap="16" fillWidth horizontal="center">
-                {/* Compact Variant */}
-                <Column gap="8" fillWidth horizontal="center">
-                    <Text variant="code-default-xs" onBackground="neutral-weak">Kompakt (24px):</Text>
-                    <NowPlaying variant="compact" />
-                </Column>
-
-                {/* Medium Variant */}
-                <Column gap="8" fillWidth horizontal="center">
-                    <Text variant="code-default-xs" onBackground="neutral-weak">Orta (44px - YENİ):</Text>
-                    <NowPlaying variant="medium" />
-                </Column>
-
-                {/* Default Variant */}
-                <Column gap="8" fillWidth>
-                    <Text variant="code-default-xs" onBackground="neutral-weak">Geniş (64px):</Text>
-                    <NowPlaying variant="default" />
-                </Column>
-            </Flex>
-          </Column>
+          <NowPlaying variant="medium" />
           
-          <Flex gap="12" wrap horizontal="center" marginTop="48">
+          <Flex gap="12" wrap horizontal="center">
             <Button href={social.github} variant="secondary" size="s">
               <Flex gap="8" vertical="center"><FaGithub /> GitHub</Flex>
             </Button>
@@ -114,34 +69,65 @@ export default function Home() {
         </Column>
       </Column>
 
-      {/* Blog Section */}
+      {/* Blog Section - Redesigned based on screenshot */}
       <Column fillWidth horizontal="center" paddingY="128" paddingX="l" background="surface">
-        <Column maxWidth="s" fillWidth gap="m">
-            <Flex fillWidth horizontal="between" vertical="center" marginBottom="32">
-                <Heading variant="display-strong-xs">{t("home.recent")}</Heading>
-                <Button href="/blog" variant="tertiary" size="s" suffixIcon="chevronRight">{t("home.viewAll")}</Button>
-            </Flex>
+        <Column maxWidth="s" fillWidth gap="32">
+            <Row fillWidth horizontal="start" vertical="center">
+                <Heading variant="display-strong-xs" style={{ textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    BLOG
+                </Heading>
+            </Row>
 
             <Flex direction="column" gap="16">
                 {posts.map((post) => (
                     <Link key={post.slug} href={`/blog/${post.slug}`} style={{ textDecoration: 'none', width: '100%' }}>
                         <Flex 
                             fillWidth 
-                            padding="24" 
+                            padding="32" 
                             radius="l" 
                             background="page" 
                             border="neutral-alpha-weak" 
                             direction="column" 
-                            gap="8"
-                            style={{ transition: 'all 0.2s ease' }}
+                            gap="24"
+                            style={{ 
+                                transition: 'all 0.3s ease',
+                                boxShadow: 'var(--shadow-elevation-light)'
+                            }}
+                            className="hover-reveal"
                         >
-                            <Text variant="code-default-s" onBackground="neutral-weak">{post.date}</Text>
-                            <Heading variant="heading-strong-m">{post.title}</Heading>
-                            <Text variant="body-default-m" onBackground="neutral-weak">{post.description}</Text>
+                            <Column gap="16">
+                                <Heading variant="heading-strong-l" style={{ lineHeight: '1.3' }}>
+                                    {post.title}
+                                </Heading>
+                                <Text variant="body-default-m" onBackground="neutral-medium" style={{ lineHeight: '1.8' }}>
+                                    {post.description}
+                                </Text>
+                            </Column>
+
+                            <Row fillWidth horizontal="between" vertical="center">
+                                <Row vertical="center" gap="8">
+                                    <HiOutlineClock size={14} className="text-neutral-faint" />
+                                    <Text variant="body-default-xs" onBackground="neutral-faint">
+                                        {language === 'tr' ? `Okuma süresi: ${post.readingTime}` : `Reading time: ${post.readingTime}`}
+                                    </Text>
+                                </Row>
+                                <Row vertical="center" gap="8">
+                                    <HiOutlineCalendarDays size={14} className="text-neutral-faint" />
+                                    <Text variant="body-default-xs" onBackground="neutral-faint">
+                                        {post.date}
+                                    </Text>
+                                </Row>
+                            </Row>
                         </Flex>
                     </Link>
                 ))}
             </Flex>
+            
+            <Row horizontal="center" marginTop="16">
+                <Button href="/blog" variant="tertiary" size="s" suffixIcon="chevronRight">
+                    {t("home.viewAll")}
+                </Button>
+            </Row>
         </Column>
       </Column>
     </Column>
