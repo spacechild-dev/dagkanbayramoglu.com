@@ -30,7 +30,6 @@ export const Header = () => {
             }}
         >
             <Flex 
-                maxWidth="m"
                 fillWidth 
                 horizontal="between" 
                 vertical="center"
@@ -40,6 +39,8 @@ export const Header = () => {
                     background: 'var(--neutral-background-medium)',
                     backdropFilter: 'blur(16px)',
                     height: '48px',
+                    width: 'fit-content',
+                    minWidth: '400px',
                     border: '1px solid var(--neutral-alpha-weak)',
                     boxShadow: 'var(--shadow-elevation-dark-two)',
                     pointerEvents: 'auto'
