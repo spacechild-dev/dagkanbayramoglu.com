@@ -6,16 +6,16 @@ import {
   Text,
   Button,
   Column,
+  Badge,
   Flex,
   Row,
-  Line,
+  Icon,
 } from "@once-ui-system/core";
 import { social } from "@/resources/once-ui.config";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { NowPlaying } from "@/components/NowPlaying";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
-import { HiOutlineClock, HiOutlineCalendarDays } from "react-icons/hi2";
 
 export default function Home() {
   const { t, language } = useLanguage();
@@ -40,16 +40,29 @@ export default function Home() {
         paddingX="l" 
         style={{ minHeight: "80vh" }}
       >
-        <Column maxWidth="s" horizontal="center" gap="48" align="center">
-          <Column gap="24" horizontal="center">
+        <Column maxWidth="m" horizontal="center" gap="48" align="center">
+          <Column gap="32" horizontal="center">
               <Text
                   variant="body-default-xl"
-                  onBackground="neutral-weak"
+                  onBackground="neutral-strong"
                   wrap="balance"
                   align="center"
-                  style={{ fontSize: '1.5rem', lineHeight: '1.6' }}
+                  style={{ 
+                    fontSize: '1.75rem', 
+                    lineHeight: '1.5',
+                    color: 'var(--neutral-on-background-strong)' // Anthracite tone
+                  }}
               >
                   {t("home.bio1")}
+              </Text>
+              <Text
+                  variant="body-default-l"
+                  onBackground="neutral-medium"
+                  wrap="balance"
+                  align="center"
+                  style={{ color: 'var(--neutral-on-background-medium)' }}
+              >
+                  {t("home.bio2")}
               </Text>
           </Column>
 
@@ -69,7 +82,7 @@ export default function Home() {
         </Column>
       </Column>
 
-      {/* Blog Section - Redesigned based on screenshot */}
+      {/* Blog Section */}
       <Column fillWidth horizontal="center" paddingY="128" paddingX="l" background="surface">
         <Column maxWidth="s" fillWidth gap="32">
             <Row fillWidth horizontal="start" vertical="center">
@@ -106,14 +119,14 @@ export default function Home() {
 
                             <Row fillWidth horizontal="between" vertical="center">
                                 <Row vertical="center" gap="8">
-                                    <HiOutlineClock size={14} className="text-neutral-faint" />
-                                    <Text variant="body-default-xs" onBackground="neutral-faint">
+                                    <Icon name="clock" size="s" onBackground="neutral-weak" />
+                                    <Text variant="body-default-xs" onBackground="neutral-weak">
                                         {language === 'tr' ? `Okuma süresi: ${post.readingTime}` : `Reading time: ${post.readingTime}`}
                                     </Text>
                                 </Row>
                                 <Row vertical="center" gap="8">
-                                    <HiOutlineCalendarDays size={14} className="text-neutral-faint" />
-                                    <Text variant="body-default-xs" onBackground="neutral-faint">
+                                    <Icon name="calendar" size="s" onBackground="neutral-weak" />
+                                    <Text variant="body-default-xs" onBackground="neutral-weak">
                                         {post.date}
                                     </Text>
                                 </Row>

@@ -56,9 +56,11 @@ export default function ResumePage() {
               <Text variant="body-default-s" onBackground="neutral-weak">Oct 2025 – {t("career.present")}</Text>
             </Row>
             <Column paddingLeft="24" style={{ borderLeft: '2px solid var(--neutral-alpha-weak)' }} gap="8">
-              <Text variant="label-strong-m">
-                {language === "tr" ? "Dijital Performans ve Medya Hesap Yöneticisi" : "Digital Performance and Media Account Manager"}
-              </Text>
+              <Row horizontal="between" vertical="start">
+                <Text variant="label-strong-m">
+                    {language === "tr" ? "Dijital Performans ve Medya Hesap Yöneticisi" : "Digital Performance and Media Account Manager"}
+                </Text>
+              </Row>
               <Text variant="body-default-s" onBackground="neutral-weak">
                 {language === "tr" 
                   ? "Birden fazla müşteri ve dikeyde performans ve medya operasyonlarını yönetmek. Performans pazarlama iş akışları için strateji ve uygulama koordinasyonu sağlamak."
@@ -87,6 +89,42 @@ export default function ResumePage() {
                     : "Led a team of six with focus on performance marketing execution. Managed multi-platform campaigns and optimized media budgets."}
                 </Text>
               </Column>
+              <Column gap="4">
+                <Row horizontal="between" vertical="start">
+                  <Text variant="label-strong-m">
+                    {language === "tr" ? "Sr. Performans Pazarlama Uzmanı" : "Sr. Performance Marketing Executive"}
+                  </Text>
+                  <Text variant="body-default-xs" onBackground="neutral-weak">Feb 2024 – Oct 2024</Text>
+                </Row>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  {language === "tr"
+                    ? "Performans platformlarında uçtan uca kampanya yürütme ve raporlama sorumluluğu. Genç ekip üyelerine ilk günden itibaren mentorluk ve pratik rehberlik sağlama."
+                    : "Owned end-to-end campaign execution and reporting across performance platforms. Provided mentorship and hands-on guidance to junior team members."}
+                </Text>
+              </Column>
+            </Column>
+          </Column>
+
+          {/* PROFAJ */}
+          <Column gap="16">
+            <Row horizontal="between" vertical="center" wrap>
+              <Heading variant="heading-strong-m" onBackground="brand-strong">PROFAJ</Heading>
+              <Text variant="body-default-s" onBackground="neutral-weak">Mart 2022 – Şubat 2024</Text>
+            </Row>
+            <Column paddingLeft="24" style={{ borderLeft: '2px solid var(--neutral-alpha-weak)' }} gap="16">
+              <Column gap="4">
+                <Row horizontal="between" vertical="start">
+                  <Text variant="label-strong-m">
+                    {language === "tr" ? "Dijital Pazarlama Ekip Lideri" : "Digital Marketing Team Lead"}
+                  </Text>
+                  <Text variant="body-default-xs" onBackground="neutral-weak">Nis 2023 – Şub 2024</Text>
+                </Row>
+                <Text variant="body-default-s" onBackground="neutral-weak">
+                  {language === "tr"
+                    ? "Beş kişilik pazarlama ekibi için stratejik yönlendirme sağlama. Performans, büyüme ve operasyonel destek odaklı görüşmeleri yönetme."
+                    : "Provided strategic direction for a five-person marketing team. Facilitated 1:1s focused on performance, growth, and operational support."}
+                </Text>
+              </Column>
             </Column>
           </Column>
         </Column>
@@ -112,7 +150,7 @@ export default function ResumePage() {
           <Heading variant="heading-strong-l">{t("career.skillsTitle")}</Heading>
           <Line background="neutral-alpha-weak" />
           <Flex gap="12" wrap>
-            {['Google Ads', 'Meta Ads', 'TikTok Ads', 'LinkedIn Ads', 'GA4', 'GTM', 'Zapier', 'Make', 'n8n'].map(skill => (
+            {['Google Ads', 'Meta Ads', 'TikTok Ads', 'LinkedIn Ads', 'GA4', 'GTM', 'Server-Side Tracking', 'Looker Studio', 'Zapier', 'Make', 'n8n'].map(skill => (
               <Flex key={skill} paddingX="12" paddingY="8" radius="m" background="surface" border="neutral-alpha-weak">
                 <Text variant="code-default-xs">{skill}</Text>
               </Flex>

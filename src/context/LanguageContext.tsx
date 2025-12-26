@@ -33,7 +33,8 @@ const translations = {
             footer: "Finally; algorithms change, minds get confused. Let's find solutions together.",
             chat: "Join the Conversation",
             recent: "Recent Writing",
-            viewAll: "View All"
+            viewAll: "View All",
+            beta: "This site is currently under development (BETA). Some things might be broken."
         },
         projects: {
             title: "Projects",
@@ -73,7 +74,8 @@ const translations = {
             footer: "Son olarak; algoritmalar değişiyor, kafalar karışıyor. Birlikte çözüm arayalım.",
             chat: "Sohbete Katıl",
             recent: "Son Yazılar",
-            viewAll: "Tümünü Gör"
+            viewAll: "Tümünü Gör",
+            beta: "Bu site şu anda geliştirme aşamasındadır (BETA). Bazı bölümler eksik veya hatalı olabilir."
         },
         projects: {
             title: "Projeler",

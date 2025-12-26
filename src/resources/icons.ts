@@ -17,7 +17,9 @@ import {
     HiOutlineEnvelope,
     HiOutlineSun,
     HiOutlineMoon,
-    HiOutlineLanguage
+    HiOutlineLanguage,
+    HiOutlineClock,
+    HiOutlineCalendarDays
 } from "react-icons/hi2";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -39,6 +41,8 @@ export const iconLibrary: Record<string, IconType> = {
     sun: HiOutlineSun,
     moon: HiOutlineMoon,
     language: HiOutlineLanguage,
+    clock: HiOutlineClock,
+    calendar: HiOutlineCalendarDays,
 };
 
 export type IconLibrary = typeof iconLibrary;

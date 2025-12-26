@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Link from "next/link";
 import {
@@ -8,42 +6,24 @@ import {
   Column,
   Flex,
 } from "@once-ui-system/core";
+import { getAllProjects } from "@/lib/projects";
 import { FaSpotify, FaShieldAlt } from "react-icons/fa";
-import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProjectsPage() {
-  const { language, t } = useLanguage();
+  const projects = getAllProjects();
 
-  const projects = [
-    {
-      title: "Spotify MixtapeKit",
-      description: language === "tr" 
-        ? "Spotify meraklıları için çalma listesi analizi ve mixtape kürasyonu sunan kapsamlı bir araç seti."
-        : "A comprehensive look into building a toolkit for Spotify enthusiasts, covering API integration, state management, and user experience.",
-      slug: "spotify-mixtapekit",
-      tags: ["spotify", "react", "api"],
-      icon: FaSpotify,
-      color: "emerald"
-    },
-    {
-      title: "FlowOTP",
-      description: language === "tr"
-        ? "İki faktörlü kimlik doğrulama için güvenli, temiz ve %100 çevrimdışı çalışan açık kaynaklı bir çözüm."
-        : "Exploring the security principles and implementation details of FlowOTP, a secure and clean solution for two-factor authentication.",
-      slug: "flow-otp",
-      tags: ["security", "2fa", "typescript"],
-      icon: FaShieldAlt,
-      color: "blue"
-    }
-  ];
+  const getIcon = (slug: string) => {
+    if (slug.includes("spotify")) return <FaSpotify size={20} className="text-emerald-500" />;
+    return <FaShieldAlt size={20} className="text-blue-500" />;
+  };
 
   return (
     <Column fillWidth horizontal="center" paddingY="128" paddingX="l" style={{ minHeight: "100vh" }}>
       <Column maxWidth="s" fillWidth gap="l">
         <Column gap="12" marginBottom="32">
-          <Heading variant="display-strong-s">{t("projects.title")}</Heading>
+          <Heading variant="display-strong-s">Projects</Heading>
           <Text variant="body-default-l" onBackground="neutral-weak">
-            {t("projects.description")}
+            A collection of my web apps, tools, and experiments.
           </Text>
         </Column>
 
@@ -61,7 +41,7 @@ export default function ProjectsPage() {
               >
                 <Flex vertical="center" gap="12">
                   <Flex padding="8" radius="m" background="neutral-alpha-weak">
-                    <project.icon size={20} className={project.color === 'emerald' ? 'text-emerald-500' : 'text-blue-500'} />
+                    {getIcon(project.slug)}
                   </Flex>
                   <Heading variant="heading-strong-s">{project.title}</Heading>
                 </Flex>
