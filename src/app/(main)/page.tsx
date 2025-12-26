@@ -1,20 +1,24 @@
 "use client";
 
+import React from "react";
 import {
   Heading,
   Text,
   Button,
   Column,
   Badge,
-  Logo,
-  Line,
+  Flex,
   LetterFx,
 } from "@once-ui-system/core";
+import { social } from "@/resources/once-ui.config";
+import { FaGithub, FaLinkedin, FaSpotify, FaEnvelope } from "react-icons/fa";
+import { SiLastdotfm } from "react-icons/si";
 
 export default function Home() {
   return (
-    <Column fillWidth center padding="l" style={{ minHeight: "100vh" }}>
-      <Column maxWidth="s" horizontal="center" gap="l" align="center">
+    <Column fillWidth horizontal="center" paddingY="160" paddingX="l" style={{ minHeight: "100vh" }}>
+      {/* Hero Section */}
+      <Column maxWidth="m" horizontal="center" gap="l" align="center">
         <Badge
           textVariant="code-default-s"
           border="neutral-alpha-medium"
@@ -22,34 +26,43 @@ export default function Home() {
           vertical="center"
           gap="16"
         >
-          <Logo dark icon="/trademarks/wordmark-dark.svg" href="https://once-ui.com" size="xs" />
-          <Logo light icon="/trademarks/wordmark-light.svg" href="https://once-ui.com" size="xs" />
-          <Line vert background="neutral-alpha-strong" />
-          <Text marginX="4">
-            <LetterFx trigger="instant">An ecosystem, not a UI kit</LetterFx>
-          </Text>
+          <Flex vertical="center" gap="8">
+            <FaGithub size={14} />
+            <Text marginX="4">
+              <LetterFx trigger="instant">Open Source Explorer</LetterFx>
+            </Text>
+          </Flex>
         </Badge>
-        <Heading variant="display-strong-xl" marginTop="24">
-          Presence that doesn't beg for attention
+        <Heading variant="display-strong-xl" align="center" marginTop="24">
+          Dağkan
         </Heading>
         <Text
           variant="heading-default-xl"
           onBackground="neutral-weak"
           wrap="balance"
-          marginBottom="16"
+          align="center"
+          marginBottom="32"
         >
-          Build with clarity, speed, and quiet confidence
+          I’m Dağkan. I love exploring and experimenting with data-driven performance marketing, analytics, and martech.
         </Text>
-        <Button
-          id="docs"
-          href="https://docs.once-ui.com/once-ui/quick-start"
-          data-border="rounded"
-          weight="default"
-          prefixIcon="copy"
-          arrowIcon
-        >
-          Explore docs
-        </Button>
+        
+        <Flex gap="12" wrap horizontal="center">
+          <Button href={social.github} variant="secondary" size="s">
+            <Flex gap="8" vertical="center"><FaGithub /> GitHub</Flex>
+          </Button>
+          <Button href={social.linkedin} variant="secondary" size="s">
+            <Flex gap="8" vertical="center"><FaLinkedin /> LinkedIn</Flex>
+          </Button>
+          <Button href={social.spotify} variant="secondary" size="s">
+            <Flex gap="8" vertical="center"><FaSpotify /> Spotify</Flex>
+          </Button>
+          <Button href={social.lastfm} variant="secondary" size="s">
+            <Flex gap="8" vertical="center"><SiLastdotfm /> Last.fm</Flex>
+          </Button>
+          <Button href="mailto:hello@dagkanbayramoglu.com" variant="primary" size="s">
+            <Flex gap="8" vertical="center"><FaEnvelope /> Mail Me</Flex>
+          </Button>
+        </Flex>
       </Column>
     </Column>
   );

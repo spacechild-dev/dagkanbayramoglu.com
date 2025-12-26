@@ -1,7 +1,5 @@
-// IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL = "https://demo.once-ui.com";
+const baseURL = "https://dagkanbayramoglu.com";
 
-// Import and set font for each variant
 import { Geist } from "next/font/google";
 import { Geist_Mono } from "next/font/google";
 
@@ -36,24 +34,23 @@ const fonts = {
   code: code,
 };
 
-// default customization applied to the HTML in the main layout.tsx
 const style = {
-  theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate
-  brand: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  accent: "indigo", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan
-  solid: "contrast", // color | contrast | inverse
-  solidStyle: "flat", // flat | plastic
-  border: "playful", // rounded | playful | conservative
-  surface: "filled", // filled | translucent
-  transition: "all", // all | micro | macro
-  scaling: "100", // 90 | 95 | 100 | 105 | 110
+  theme: "system",
+  neutral: "gray",
+  brand: "emerald",
+  accent: "emerald",
+  solid: "contrast",
+  solidStyle: "flat",
+  border: "playful",
+  surface: "filled",
+  transition: "all",
+  scaling: "100",
 };
 
 const dataStyle = {
-  variant: "gradient", // flat | gradient | outline
-  mode: "categorical", // categorical | divergent | sequential
-  height: 24, // default chart height
+  variant: "gradient",
+  mode: "categorical",
+  height: 24,
   axis: {
     stroke: "var(--neutral-alpha-weak)",
   },
@@ -105,35 +102,34 @@ const effects = {
   },
 };
 
-// metadata for pages
 const meta = {
   home: {
     path: "/",
-    title: "Once UI for Next.js",
-    description:
-      "An open-source design system and component library for Next.js that emphasizes easy styling and accessibility in UI development.",
+    title: "Dağkan",
+    description: "Yazılımcı değilim. Burada 'barely project' dediğim projelerimi paylaşıyorum.",
     image: "/images/og/home.jpg",
-    canonical: "https://once-ui.com",
+    canonical: "https://dagkanbayramoglu.com",
     robots: "index,follow",
-    alternates: [{ href: "https://once-ui.com", hrefLang: "en" }],
+    alternates: [{ href: "https://dagkanbayramoglu.com", hrefLang: "en" }],
   },
-  // add more routes and reference them in page.tsx
 };
 
-// default schema data
 const schema = {
   logo: "",
   type: "Organization",
-  name: "Once UI",
+  name: "Dağkan",
   description: meta.home.description,
-  email: "lorant@once-ui.com",
+  email: "hello@dagkanbayramoglu.com",
 };
 
-// social links
 const social = {
-  twitter: "https://www.twitter.com/_onceui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  twitter: "https://twitter.com/spacechild_dev",
+  linkedin: "https://www.linkedin.com/in/dagkanbayramoglu/",
+  discord: "", // Not specified
+  github: "https://github.com/spacechild-dev",
+  spotify: "https://open.spotify.com/user/az7ds62ok9xtg09ua7cs7ym9i",
+  lastfm: "https://www.last.fm/user/dagkan/listening-report/year",
+  buyMeACoffee: "https://buymeacoffee.com/daiquiri",
 };
 
 export { baseURL, fonts, style, meta, schema, social, effects, dataStyle };

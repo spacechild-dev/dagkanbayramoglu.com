@@ -1,0 +1,76 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import {
+  Heading,
+  Text,
+  Column,
+  Flex,
+} from "@once-ui-system/core";
+import { FaSpotify, FaShieldAlt } from "react-icons/fa";
+
+export default function ProjectsPage() {
+  const projects = [
+    {
+      title: "Spotify MixtapeKit",
+      description: "A comprehensive look into building a toolkit for Spotify enthusiasts, covering API integration, state management, and user experience.",
+      slug: "spotify-mixtapekit",
+      tags: ["spotify", "react", "api"],
+      icon: FaSpotify,
+      color: "emerald"
+    },
+    {
+      title: "FlowOTP",
+      description: "Exploring the security principles and implementation details of FlowOTP, a secure and clean solution for two-factor authentication.",
+      slug: "flow-otp",
+      tags: ["security", "2fa", "typescript"],
+      icon: FaShieldAlt,
+      color: "blue"
+    }
+  ];
+
+  return (
+    <Column fillWidth horizontal="center" paddingY="128" paddingX="l" style={{ minHeight: "100vh" }}>
+      <Column maxWidth="m" fillWidth gap="l">
+        <Column gap="12" marginBottom="32">
+          <Heading variant="display-strong-s">Projects</Heading>
+          <Text variant="body-default-l" onBackground="neutral-weak">
+            A collection of my web apps, tools, and experiments.
+          </Text>
+        </Column>
+
+        <Flex gap="24" wrap>
+          {projects.map((project) => (
+            <Link key={project.slug} href={`/projects/${project.slug}`} style={{ textDecoration: 'none', flex: '1 1 300px' }}>
+              <Flex 
+                direction="column" 
+                padding="24" 
+                radius="l" 
+                background="surface" 
+                border="neutral-alpha-weak" 
+                gap="16"
+                style={{ height: '100%' }}
+              >
+                <Flex vertical="center" gap="12">
+                  <Flex padding="8" radius="m" background="neutral-alpha-weak">
+                    <project.icon size={20} className={project.color === 'emerald' ? 'text-emerald-500' : 'text-blue-500'} />
+                  </Flex>
+                  <Heading variant="heading-strong-s">{project.title}</Heading>
+                </Flex>
+                <Text variant="body-default-s" onBackground="neutral-weak">{project.description}</Text>
+                <Flex gap="8" wrap marginTop="16">
+                  {project.tags.map((tag) => (
+                    <Flex key={tag} paddingX="8" paddingY="4" radius="m" background="neutral-alpha-weak">
+                      <Text variant="code-default-xs">#{tag}</Text>
+                    </Flex>
+                  ))}
+                </Flex>
+              </Flex>
+            </Link>
+          ))}
+        </Flex>
+      </Column>
+    </Column>
+  );
+}
