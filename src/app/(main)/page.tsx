@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <Column fillWidth horizontal="center" paddingY="160" paddingX="l" style={{ minHeight: "100vh" }}>
       {/* Hero Section */}
-      <Column maxWidth="m" horizontal="center" gap="l" align="center">
+      <Column maxWidth="s" horizontal="center" gap="l" align="center">
         <Badge
           textVariant="code-default-s"
           border="neutral-alpha-medium"
@@ -43,7 +43,7 @@ export default function Home() {
           align="center"
           marginBottom="32"
         >
-          I’m Dağkan. I love exploring and experimenting with data-driven performance marketing, analytics, and martech.
+          I’m Dağkan (sounds like “DAH-kahn”). I don’t really consider myself a developer, but I love exploring and experimenting with different topics—especially anything related to data-driven performance marketing, analytics, and martech.
         </Text>
         
         <Flex gap="12" wrap horizontal="center">
