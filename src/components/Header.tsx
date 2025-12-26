@@ -280,15 +280,16 @@ export const Header = () => {
                             />
                         </Flex>
 
-                        <Button 
-                            variant="tertiary" 
-                            size="s" 
-                            onClick={() => setIsContactOpen(true)}
-                            prefixIcon="mail"
-                            hide="s"
-                        >
-                            <span>{t("nav.contact")}</span>
-                        </Button>
+                        <Row s={{ hide: true }}>
+                            <Button 
+                                variant="tertiary" 
+                                size="s" 
+                                onClick={() => setIsContactOpen(true)}
+                                prefixIcon="mail"
+                            >
+                                <span>{t("nav.contact")}</span>
+                            </Button>
+                        </Row>
                     </Row>
                 </Flex>
 
