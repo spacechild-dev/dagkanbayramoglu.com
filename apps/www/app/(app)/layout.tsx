@@ -11,7 +11,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
     <>
       {/* <AlertBanner /> */}
       <SiteHeader />
-      <main className="flex-1 pt-24">{children}</main>
+      <main className="flex-1 pt-32">{children}</main>
       <SiteFooter />
     </>
   )
